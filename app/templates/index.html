@@ -2,13 +2,141 @@
     <head>
         <title>Coronavirus.py</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="container text-center mt-5"> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+ <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>    <body> -->
+        <div class="container text-center mt-5">
             <h1>Coronavirus.py</h1>
-            <h2>Casos de coronavirus en el mundo {{ values[0] }}</h2>
+            <h2>Casos de coronavirus en el mundo {{ worldValue }}</h2>
+            <div class="mt-5">
+              <canvas id="chart" width="600" height="400"></canvas>
+            </div>
+
+    <script>
+//     var ctx = document.getElementById('chart').getContext("2d");
+// var myChart = new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//         labels: [
+//           {% for item in countries %}
+//               "{{ item }}",
+//                {% endfor %}
+//         ],
+//         datasets : [{
+//              fillColor: "rgba(151,187,205,0.2)",
+//              strokeColor: "rgba(151,187,205,1)",
+//              pointColor: "rgba(151,187,205,1)",
+//              data : [
+//                        {% for item in values %}
+//                           "{{ item }}",
+//                        {% endfor %}
+//                     ]
+//                     }],
+//     },
+//     options: {
+//                              responsive: true,
+//                              maintainAspectRatio: false,
+//                          tooltips: {
+//                            callbacks: {
+//                                  label: function(tooltipItem, data) {
+//                                      var value = data.datasets[0].data[tooltipItem.index];
+//                                      if(parseInt(value) >= 1000){
+//                                                 return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//                                              } else {
+//                                                 return value;
+//                                              }
+//                                  }
+//                            } // end callbacks:
+//                          }, //end tooltips
+//         scales: {
+//                                      yAxes: [{
+//                                          ticks: {
+//                                              beginAtZero:true,
+//                                              callback: function(value, index, values) {
+//                                                  if(parseInt(value) >= 1000){
+//                                                     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//                                                  } else {
+//                                                     return value;
+//                                                  }
+//                                             }
+//                                          }
+//                                      }]
+//         }
+//     }
+// });
+      // bar chart data
+      var barData = {
+
+        labels : [
+          {% for item in countries %}
+           "{{ item }}",
+          {% endfor %}
+	                ],
+
+        datasets : [{
+          fillColor: "rgba(151,187,205,0.2)",
+          strokeColor: "rgba(151,187,205,1)",
+          pointColor: "rgba(151,187,205,1)",
+          data : [
+                    {% for item in values %}
+                       "{{ item }}",
+                    {% endfor %}
+	               ]
+                 }],
+
+                 options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                        tooltips: {
+                          callbacks: {
+                                label: function(tooltipItem, data) {
+                                    var value = data.datasets[0].data[tooltipItem.index];
+                                    if(parseInt(value) >= 1000){
+                                               return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            } else {
+                                               return '$' + value;
+                                            }
+                                }
+                          } // end callbacks:
+                        }, //end tooltips
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true,
+                                        callback: function(value, index, values) {
+                                            if(parseInt(value) >= 1000){
+                                               return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            } else {
+                                               return '$' + value;
+                                            }
+                                       }
+                                    }
+                                }]
+                            }
+                        }
+      }
+
+     // get bar chart canvas
+     var mychart = document.getElementById("chart").getContext("2d");
+
+       steps = 10
+       max = {{max}}
+
+     // draw bar chart
+     new Chart(mychart).Bar(barData, {
+       scaleOverride: true,
+       scaleSteps: steps,
+       scaleStepWidth: Math.ceil(max / steps),
+       scaleStartValue: 0,
+       scaleShowVerticalLines: true,
+       scaleShowGridLines : true,
+       barShowStroke : true,
+       scaleShowLabels: true
+       }
+     );
+
+    </script>
         </div>
-       
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
