@@ -59,9 +59,24 @@ def maxValue(limit):
 
 max=maxValue(values[0])
 
+#davidt: tabla con mayores casos de covid worldwide
 
+import csv
 
+file=open("top_5_c_total_cases.CSV", "r")
+reader = csv.reader(file)
+locationtabla1 = []
+populationtable1 = []
+total_casestable1 = []
+total_deathstable1 = []
+for line in reader:
+    locationtabla1.append(line[0])
+    populationtable1.append(line[1])
+    total_casestable1.append(line[2])
+    total_deathstable1.append(line[3])
+    print(line)
 
+print(locationtabla1,populationtable1,total_casestable1,total_deathstable1)
 
 @app.route('/')
 @app.route('/index')
@@ -70,4 +85,4 @@ def index():
 
 @app.route('/graph2')
 def graph():
-    return render_template('graph2.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath)
+    return render_template('graph2.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtabla1 = locationtabla1, total_deathstable1 = total_deathstable1)
