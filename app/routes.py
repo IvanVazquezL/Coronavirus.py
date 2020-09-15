@@ -173,4 +173,4 @@ def index():
 
 @app.route('/graph2')
 def graph():
-    return render_template('graph2.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtabla1 = locationtabla1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1)
+    return render_template('graph2.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,total_casestable1=total_casestable1)

@@ -86,7 +86,7 @@ var myChart1 = new Chart(ctx, {
 type: 'bar',
 data: {
     labels: [
-      {% for item in locationtabla1 %}
+      {% for item in locationtable1 %}
           "{{ item }}",
            {% endfor %}
     ],
@@ -118,11 +118,43 @@ options: {
 
                                  var value = data.datasets[0].data[tooltipItem.index];
                                  if(parseInt(value) >= 1000){
-                                            return ["Muertos: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),"Poblacion: "];
+                                            return "Muertes: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                          } else {
-                                            return value;
+                                            return "Muertes: "+value;
                                          }
-                             }
+                             },
+                             afterLabel: function(tooltipItem, data) {
+                               var list = [];
+                               var listCases = []
+
+                               {% for item in populationtable1 %}
+                                  list.push("{{ item }}");
+                               {% endfor %}
+
+                               {% for item in total_casestable1 %}
+                                  listCases.push("{{ item }}");
+                               {% endfor %}
+
+                               list.forEach(function(element, index, array){
+                                 if(parseInt(element) >= 1000){
+                                            list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                         } else {
+                                            list[index]= element;
+                                         }
+                               });
+
+                               listCases.forEach(function(element, index, array){
+                                 if(parseInt(element) >= 1000){
+                                            listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                         } else {
+                                            listCases[index]= element;
+                                         }
+                               });
+console.log(tooltipItem);
+console.log({{populationtable1[0]}});
+console.log(list[0])
+                                return ['Poblacion: '+list[tooltipItem.index],"Casos totales: "+listCases[tooltipItem.index]];
+                              }
                        } // end callbacks:
                      }, //end tooltips
     scales: {
