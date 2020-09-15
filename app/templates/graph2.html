@@ -118,7 +118,7 @@ options: {
 
                                  var value = data.datasets[0].data[tooltipItem.index];
                                  if(parseInt(value) >= 1000){
-                                            return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            return ["Muertos: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),"Poblacion: "];
                                          } else {
                                             return value;
                                          }

@@ -65,18 +65,56 @@ import csv
 
 file=open("top_5_c_total_cases.CSV", "r")
 reader = csv.reader(file)
-locationtabla1 = []
+locationtable1 = []
 populationtable1 = []
 total_casestable1 = []
 total_deathstable1 = []
 for line in reader:
-    locationtabla1.append(line[0])
+    locationtable1.append(line[0])
     populationtable1.append(line[1])
     total_casestable1.append(line[2])
     total_deathstable1.append(line[3])
     print(line)
 
-print(locationtabla1,populationtable1,total_casestable1,total_deathstable1)
+print(locationtable1,populationtable1,total_casestable1,total_deathstable1)
+
+#top 7 countries that best managed covid-19 Uwu according to TIME Magazine (upale)
+
+import csv
+file=open("best_cases_covid.CSV", "r")
+reader = csv.reader(file)
+locationtable2 = []
+populationtable2 = []
+total_casestable2 = []
+total_deathstable2 = []
+for line in reader:
+    locationtable2.append(line[0])
+    populationtable2.append(line[1])
+    total_casestable2.append(line[2])
+    total_deathstable2.append(line[3])
+    print(line)
+
+print(locationtable2,populationtable2,total_casestable2,total_deathstable2)
+
+#top 10 worst countries according to the deaths_per_million
+
+import csv
+file=open("worst_total_d_per_million.CSV", "r")
+reader = csv.reader(file)
+locationtable3 = []
+total_casestable3 = []
+total_deathstable3 = []
+total_deaths_per_milliontable3 = []
+total_tests_per_thousandtable3 = []
+for line in reader:
+    locationtable3.append(line[0])
+    total_casestable3.append(line[1])
+    total_deathstable3.append(line[2])
+    total_deaths_per_milliontable3.append(line[3])
+    total_tests_per_thousandtable3.append(line[4])
+    print(line)
+
+print(locationtable3,total_casestable3,total_deathstable3,total_deaths_per_milliontable3,total_tests_per_thousandtable3)
 
 @app.route('/')
 @app.route('/index')
@@ -85,4 +123,4 @@ def index():
 
 @app.route('/graph2')
 def graph():
-    return render_template('graph2.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtabla1 = locationtabla1, total_deathstable1 = total_deathstable1)
+    return render_template('graph2.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtabla1 = locationtabla1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1)
