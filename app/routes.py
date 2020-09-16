@@ -10,7 +10,7 @@ def take(n, iterable):
 
 pd.options.display.float_format = '{:,.0f}'.format
 
-data = pd.read_csv("Coronavirus_dataset.csv")
+data = pd.read_csv("owid-covid-data.csv")
 
 #Dictionaries
 dicto = {}
@@ -169,8 +169,4 @@ print(locationtable5,populationtable5,total_deaths_per_milliontable5,gdp_per_cap
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue)
-
-@app.route('/graph2')
-def graph():
-    return render_template('graph2.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,total_casestable1=total_casestable1)
+    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,total_casestable1=total_casestable1)
