@@ -58,9 +58,23 @@
             <!-- End Sick Population Percentage chart -->
 
             <!-- Start Fatality Case Ratio chart -->
-            <div class="d-flex justify-content-center">
-              <div class="mt-5" style="width:600; height:400">
+            <h3 class="mt-5 mb-5">Countries with the highest Case Fatality Rate</h3>
+            <div class="d-flex justify-content-between">
+              <div style="width:600; height:400">
                 <canvas id="chartFatalityCaseRatio"></canvas>
+              </div>
+              <div class="mt-5 ml-5 text-justify" style="width:600; height:400;">
+                  <h6>The Case Fatality Rate(CFR) is the number of confirmed deaths divided by
+                    the number of confirmed cases. The worldwide CFR is {{caseFatalityWorld}}%
+                  </h6>
+                  <br>
+                  <h6>Yemen has the highest CFR in the world with a {{case_fatality_ratio[0]}}%
+                  </h6>
+<br>
+                  <a href="https://www.undp.org/content/undp/en/home/blog/2020/covid-19-ravages-an-already-desperate-yemen.html">
+                  <h6>"After nearly six years of war, 80 percent of Yemen’s 30 million population—more than 24 million people—depend on humanitarian assistance to survive. Millions are severely malnourished and weakened by diseases such as dengue, malaria, and cholera. They suffer from pre-existing conditions and are uniquely vulnerable to the worst and deadliest impact of COVID-19.
+
+Yemen is already the world’s worst humanitarian and development crisis."</h6></a>
               </div>
             </div>
             <!-- End Fatality Case Ratio chart -->
@@ -308,9 +322,9 @@ options: {
 
                                listPerMillion.forEach(function(element, index, array){
                                  if(parseInt(element) >= 1000){
-                                            listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                          } else {
-                                            listCases[index]= element;
+                                            listPerMillion[index]= element;
                                          }
                                });
 
@@ -530,7 +544,7 @@ data: {
          backgroundColor: "rgba(151,187,205,0.2)",
          borderColor:"rgba(151,187,205,1)",
          borderWidth:2,
-         label: "Sick Population Percentage",
+         label: "Percentage of Population that got Covid",
          data : [
                    {% for item in sick_population %}
                       "{{ item }}",
@@ -551,9 +565,9 @@ options: {
 
                                  var value = data.datasets[0].data[tooltipItem.index];
                                  if(parseInt(value) >= 1000){
-                                            return "Sick Population Percentage: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            return "Percentage of Population that got Covid: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" %";
                                          } else {
-                                            return "Sick Population Percentage: "+value;
+                                            return "Percentage of Population that got Covid: "+value +" %";
                                          }
                              },
                              afterLabel: function(tooltipItem, data) {
@@ -634,7 +648,7 @@ options: {
 
 
 
-                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
+                                return ["Total Cases: "+listPerMillion[tooltipItem.index],'Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
@@ -676,7 +690,7 @@ data: {
          backgroundColor: "rgba(151,187,205,0.2)",
          borderColor:"rgba(151,187,205,1)",
          borderWidth:2,
-         label: "Fatality Case Ratio",
+         label: "Case Fatality Rate",
          data : [
                    {% for item in case_fatality_ratio %}
                       "{{ item }}",
@@ -697,9 +711,9 @@ options: {
 
                                  var value = data.datasets[0].data[tooltipItem.index];
                                  if(parseInt(value) >= 1000){
-                                            return "Fatality Case Ratio: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            return "Case Fatality Rate: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"%";
                                          } else {
-                                            return "Fatality Case Ratio: "+value;
+                                            return "Case Fatality Rate: "+value+"%";
                                          }
                              },
                              afterLabel: function(tooltipItem, data) {
@@ -779,8 +793,8 @@ options: {
                                });
 
 
-
-                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index],"Total Deaths per Million: "+listMaleSmokers[tooltipItem.index]];
+                               // return ['Population: '+list[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Deaths per Million: "+listMaleSmokers[tooltipItem.index]];
+                                return ["Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
