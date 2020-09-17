@@ -59,114 +59,128 @@ def maxValue(limit):
 
 max=maxValue(values[0])
 
-#davidt: tabla con mayores casos de covid worldwide
+#davidt pandas code
 
-import csv
+#table1 (tabla con mayores casos en el mundo 5 países)
+csv = data.groupby(['iso_code','location','population','total_cases','total_deaths']).size().reset_index().groupby('iso_code').max()
+table1 = csv.drop('OWID_WRL')
+table11 = table1.sort_values(by ='total_deaths', ascending = False)
+top10table1 = table11.head(n=10)
 
-file=open("top_5_c_total_cases.CSV", "r")
-reader = csv.reader(file)
-locationtable1 = []
-populationtable1 = []
-total_casestable1 = []
-total_deathstable1 = []
-for line in reader:
-    locationtable1.append(line[0])
-    populationtable1.append(line[1])
-    total_casestable1.append(line[2])
-    total_deathstable1.append(line[3])
-    print(line)
+locationtable1 = top10table1['location'].values.tolist()
+populationtable1 = top10table1['population'].values.tolist()
+total_casestable1 = top10table1['total_cases'].values.tolist()
+total_deathstable1 = top10table1['total_deaths'].values.tolist()
 
+print("TABLE 1:")
 print(locationtable1,populationtable1,total_casestable1,total_deathstable1)
 
+#bctable1:
 #top 7 countries that best managed covid-19 Uwu according to TIME Magazine (upale)
+#bc = best_cases in the world
 
-import csv
-file=open("best_cases_covid.CSV", "r")
-reader = csv.reader(file)
-locationtable2 = []
-populationtable2 = []
-total_casestable2 = []
-total_deathstable2 = []
-for line in reader:
-    locationtable2.append(line[0])
-    populationtable2.append(line[1])
-    total_casestable2.append(line[2])
-    total_deathstable2.append(line[3])
-    print(line)
+bctable1 = table11.loc[(table11['location'] == 'Taiwan') | (table11['location'] == 'Singapore') | (table11['location'] == 'South Korea') | (table11['location'] == 'New Zealand') | (table11['location'] == 'Australia') | (table11['location'] == 'United Arab Emirates')| (table11['location'] == 'Greece')]
+bctable1 = bctable1.sort_values(by ='total_deaths', ascending = False)
 
-print(locationtable2,populationtable2,total_casestable2,total_deathstable2)
+locationbctable1 = bctable1['location'].values.tolist()
+populationbctable1 = bctable1['population'].values.tolist()
+total_casesbctable1 = bctable1['total_cases'].values.tolist()
+total_deathsbctable1 = bctable1['total_deaths'].values.tolist()
 
-#top 10 worst countries according to the deaths_per_million
+print("BCTABLE1:")
+print(locationbctable1,populationbctable1,total_casesbctable1,total_deathsbctable1)
 
-import csv
-file=open("worst_total_d_per_million.CSV", "r")
-reader = csv.reader(file)
-locationtable3 = []
-total_casestable3 = []
-total_deathstable3 = []
-total_deaths_per_milliontable3 = []
-total_tests_per_thousandtable3 = []
-for line in reader:
-    locationtable3.append(line[0])
-    total_casestable3.append(line[1])
-    total_deathstable3.append(line[2])
-    total_deaths_per_milliontable3.append(line[3])
-    total_tests_per_thousandtable3.append(line[4])
-    print(line)
+#table2:
+#top 10 worst countries filtered by total_deaths_per_million
+table2 = data.groupby(['iso_code','location','total_cases','total_deaths','total_deaths_per_million','total_tests_per_thousand']).size().reset_index().groupby('iso_code').max()
+sortable2 = table2.sort_values(by ='total_deaths_per_million', ascending = False)
+top10t2 = sortable2.head(n=10)
 
-print(locationtable3,total_casestable3,total_deathstable3,total_deaths_per_milliontable3,total_tests_per_thousandtable3)
+locationtable2 = top10t2['location'].values.tolist()
+total_casestable2 = top10t2['total_cases'].values.tolist()
+total_deathstable2 = top10t2['total_deaths'].values.tolist()
+total_deaths_per_milliontable2 = top10t2['total_deaths_per_million'].values.tolist()
+total_tests_per_thousandtable2 = top10t2['total_tests_per_thousand'].values.tolist()
 
-#top 7 best countries according to the deaths_per_million
+print("TABLE2:")
+print(locationtable2,total_casestable2,total_deathstable2,total_deaths_per_milliontable2,total_tests_per_thousandtable2)
 
-import csv
-file=open("best_cases_table2.CSV", "r")
-reader = csv.reader(file)
-locationtable4 = []
-total_casestable4 = []
-total_deathstable4 = []
-total_deaths_per_milliontable4 = []
-total_tests_per_thousandtable4 = []
-for line in reader:
-    locationtable4.append(line[0])
-    total_casestable4.append(line[1])
-    total_deathstable4.append(line[2])
-    total_deaths_per_milliontable4.append(line[3])
-    total_tests_per_thousandtable4.append(line[4])
-    print(line)
+#bctable2
+#top 7 countries that best managed covid-19 Uwu according to TIME Magazine (upale)
+#bc = best_cases in the world
 
-print(locationtable4,total_casestable4,total_deathstable4,total_deaths_per_milliontable4,total_tests_per_thousandtable4)
+bc2t2 = table2.loc[(table2['location'] == 'Taiwan') | (table2['location'] == 'Singapore') | (table2['location'] == 'South Korea') | (table2['location'] == 'New Zealand') | (table2['location'] == 'Australia') | (table2['location'] == 'United Arab Emirates')| (table2['location'] == 'Greece')]
+bc2t2 = bc2t2.sort_values(by ='total_cases', ascending = False)
 
-#worst 10 countries with more information regarding diseases and people older than 65
+locationbc2t2 = bc2t2['location'].values.tolist()
+total_casesbc2t2 = bc2t2['total_cases'].values.tolist()
+total_deathsbc2t2 = bc2t2['total_deaths'].values.tolist()
+total_deaths_per_millionbc2t2 = bc2t2['total_deaths_per_million'].values.tolist()
+total_tests_per_thousandbc2t2 = bc2t2['total_tests_per_thousand'].values.tolist()
 
-import csv
-file=open("worst_cases_table3.CSV", "r")
-reader = csv.reader(file)
-locationtable5 = []
-populationtable5 = []
-total_deaths_per_milliontable5 = []
-gdp_per_capita_table5 = []
-extreme_poverty_table5 = []
-diabetes_prevalence_table5 = []
-cardiovasc_death_rate_table5 = []
-male_smokers_table5 = []
-female_smokers_table5 = []
-aged_65_older_table5 = []
-for line in reader:
-    locationtable5.append(line[0])
-    populationtable5.append(line[1])
-    total_deaths_per_milliontable5.append(line[2])
-    gdp_per_capita_table5.append(line[3])
-    extreme_poverty_table5.append(line[4])
-    diabetes_prevalence_table5.append(line[5])
-    cardiovasc_death_rate_table5.append(line[6])
-    male_smokers_table5.append(line[7])
-    female_smokers_table5.append(line[8])
-    aged_65_older_table5.append(line[9])
-    print(line)
+print("BCTABLE2:")
+print(locationbc2t2,total_casesbc2t2,total_deathsbc2t2,total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2)
 
-print(locationtable5,populationtable5,total_deaths_per_milliontable5,gdp_per_capita_table5,extreme_poverty_table5,diabetes_prevalence_table5,cardiovasc_death_rate_table5,male_smokers_table5,female_smokers_table5,aged_65_older_table5)
+#table3
+#this table is sorted by the "total_cases_per_million", and it displays the top worst 10 countries.
+
+table3 = data.groupby(['iso_code','location','population','total_cases_per_million','gdp_per_capita','extreme_poverty','diabetes_prevalence','cardiovasc_death_rate','male_smokers','female_smokers','aged_65_older']).size().reset_index().groupby('iso_code').max()
+sortable3 = table3.sort_values(by ='total_cases_per_million', ascending = False)
+top10t3 = sortable3.head(n=10)
+
+locationtable3 = top10t3['location'].values.tolist()
+populationtable3 = top10t3['population'].values.tolist()
+total_cases_per_milliontable3 = top10t3['total_cases_per_million'].values.tolist()
+gdp_per_capita_table3 = top10t3['gdp_per_capita'].values.tolist()
+extreme_poverty_table3 = top10t3['extreme_poverty'].values.tolist()
+diabetes_prevalence_table3 = top10t3['diabetes_prevalence'].values.tolist()
+cardiovasc_death_rate_table3 = top10t3['cardiovasc_death_rate'].values.tolist()
+male_smokers_table3 = top10t3['male_smokers'].values.tolist()
+female_smokers_table3 = top10t3['female_smokers'].values.tolist()
+aged_65_older_table3 = top10t3['aged_65_older'].values.tolist()
+
+print('TABLE3:')
+print(locationtable3,populationtable3,total_deaths_per_milliontable3,gdp_per_capita_table3,extreme_poverty_table3,diabetes_prevalence_table3,cardiovasc_death_rate_table3,male_smokers_table3,female_smokers_table3,aged_65_older_table3)
+
+#table4
+#this table will display the sick population in %
+
+table4 = data.groupby(['iso_code','location','population','median_age','total_cases','total_tests_per_thousand','new_cases_per_million']).size().reset_index().groupby('iso_code').max()
+table4['sick_population'] = ((table4['total_cases'] * 100) / table4['population'])
+table4 = table4.sort_values(by ='sick_population', ascending = False)
+table4top10 = table4.head(n=10)
+
+locationtable4 = table4top10['location'].values.tolist()
+populationtable4 = table4top10['population'].values.tolist()
+median_agetable4 = table4top10['median_age'].values.tolist()
+total_casestable4 = table4top10['total_cases'].values.tolist()
+total_tests_per_thousandtable4 = table4top10['total_tests_per_thousand'].values.tolist()
+new_cases_per_million = table4top10['new_cases_per_million'].values.tolist()
+sick_population = table4top10['sick_population'].values.tolist()
+
+print('TABLE4:')
+print(locationtable4,populationtable4,median_agetable4,total_casestable4,total_casestable4,total_tests_per_thousandtable4,new_cases_per_million,sick_population)
+
+#table5
+#this table will display the Fatality case ratio per country
+
+table5 = data.groupby(['iso_code','location','population','median_age','total_cases','total_deaths','total_deaths_per_million']).size().reset_index().groupby('iso_code').max()
+table5['case_fatality_ratio'] = ((table5['total_deaths'] * 100) / table5['total_cases'])
+table5 = table5.sort_values(by =['case_fatality_ratio', 'population'], ascending = False)
+table5top10 = table5.head(n=10)
+
+locationtable5 = table5top10['location'].values.tolist()
+populationtable5 = table5top10['population'].values.tolist()
+median_agetable5 = table5top10['median_age'].values.tolist()
+total_casestable5 = table5top10['total_cases'].values.tolist()
+total_deathstable5 = table5top10['total_deaths'].values.tolist()
+total_deaths_per_milliontable5 = table5top10['total_deaths_per_million'].values.tolist()
+case_fatality_ratio = table5top10['case_fatality_ratio'].values.tolist()
+
+print('TABLE5:')
+print(locationtable5,populationtable5,median_agetable5,total_casestable5,total_deathstable5,total_deaths_per_milliontable5,case_fatality_ratio)
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,total_casestable1=total_casestable1)
+    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,total_casestable1=total_casestable1,locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2)
