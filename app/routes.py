@@ -68,9 +68,9 @@ table11 = table1.sort_values(by ='total_deaths', ascending = False)
 top10table1 = table11.head(n=10)
 
 locationtable1 = top10table1['location'].values.tolist()
-populationtable1 = top10table1['population'].values.tolist()
-total_casestable1 = top10table1['total_cases'].values.tolist()
-total_deathstable1 = top10table1['total_deaths'].values.tolist()
+populationtable1 = top10table1['population'].values.astype(int).tolist()
+total_casestable1 = top10table1['total_cases'].values.astype(int).tolist()
+total_deathstable1 = top10table1['total_deaths'].values.astype(int).tolist()
 
 print("TABLE 1:")
 print(locationtable1,populationtable1,total_casestable1,total_deathstable1)
@@ -83,8 +83,8 @@ bctable1 = table11.loc[(table11['location'] == 'Taiwan') | (table11['location'] 
 bctable1 = bctable1.sort_values(by ='total_deaths', ascending = False)
 
 locationbctable1 = bctable1['location'].values.tolist()
-populationbctable1 = bctable1['population'].values.tolist()
-total_casesbctable1 = bctable1['total_cases'].values.tolist()
+populationbctable1 = bctable1['population'].values.astype(int).tolist()
+total_casesbctable1 = bctable1['total_cases'].values.astype(int).tolist()
 total_deathsbctable1 = bctable1['total_deaths'].values.tolist()
 
 print("BCTABLE1:")
@@ -97,8 +97,8 @@ sortable2 = table2.sort_values(by ='total_deaths_per_million', ascending = False
 top10t2 = sortable2.head(n=10)
 
 locationtable2 = top10t2['location'].values.tolist()
-total_casestable2 = top10t2['total_cases'].values.tolist()
-total_deathstable2 = top10t2['total_deaths'].values.tolist()
+total_casestable2 = top10t2['total_cases'].values.astype(int).tolist()
+total_deathstable2 = top10t2['total_deaths'].values.astype(int).tolist()
 total_deaths_per_milliontable2 = top10t2['total_deaths_per_million'].values.tolist()
 total_tests_per_thousandtable2 = top10t2['total_tests_per_thousand'].values.tolist()
 
@@ -113,8 +113,8 @@ bc2t2 = table2.loc[(table2['location'] == 'Taiwan') | (table2['location'] == 'Si
 bc2t2 = bc2t2.sort_values(by ='total_cases', ascending = False)
 
 locationbc2t2 = bc2t2['location'].values.tolist()
-total_casesbc2t2 = bc2t2['total_cases'].values.tolist()
-total_deathsbc2t2 = bc2t2['total_deaths'].values.tolist()
+total_casesbc2t2 = bc2t2['total_cases'].values.astype(int).tolist()
+total_deathsbc2t2 = bc2t2['total_deaths'].values.astype(int).tolist()
 total_deaths_per_millionbc2t2 = bc2t2['total_deaths_per_million'].values.tolist()
 total_tests_per_thousandbc2t2 = bc2t2['total_tests_per_thousand'].values.tolist()
 
@@ -129,7 +129,7 @@ sortable3 = table3.sort_values(by ='total_cases_per_million', ascending = False)
 top10t3 = sortable3.head(n=10)
 
 locationtable3 = top10t3['location'].values.tolist()
-populationtable3 = top10t3['population'].values.tolist()
+populationtable3 = top10t3['population'].values.astype(int).tolist()
 total_cases_per_milliontable3 = top10t3['total_cases_per_million'].values.tolist()
 gdp_per_capita_table3 = top10t3['gdp_per_capita'].values.tolist()
 extreme_poverty_table3 = top10t3['extreme_poverty'].values.tolist()
@@ -151,9 +151,9 @@ table4 = table4.sort_values(by ='sick_population', ascending = False)
 table4top10 = table4.head(n=10)
 
 locationtable4 = table4top10['location'].values.tolist()
-populationtable4 = table4top10['population'].values.tolist()
+populationtable4 = table4top10['population'].values.astype(int).tolist()
 median_agetable4 = table4top10['median_age'].values.tolist()
-total_casestable4 = table4top10['total_cases'].values.tolist()
+total_casestable4 = table4top10['total_cases'].values.astype(int).tolist()
 total_tests_per_thousandtable4 = table4top10['total_tests_per_thousand'].values.tolist()
 new_cases_per_million = table4top10['new_cases_per_million'].values.tolist()
 sick_population = table4top10['sick_population'].values.tolist()
@@ -170,10 +170,10 @@ table5 = table5.sort_values(by =['case_fatality_ratio', 'population'], ascending
 table5top10 = table5.head(n=10)
 
 locationtable5 = table5top10['location'].values.tolist()
-populationtable5 = table5top10['population'].values.tolist()
+populationtable5 = table5top10['population'].values.astype(int).tolist()
 median_agetable5 = table5top10['median_age'].values.tolist()
-total_casestable5 = table5top10['total_cases'].values.tolist()
-total_deathstable5 = table5top10['total_deaths'].values.tolist()
+total_casestable5 = table5top10['total_cases'].values.astype(int).tolist()
+total_deathstable5 = table5top10['total_deaths'].values.astype(int).tolist()
 total_deaths_per_milliontable5 = table5top10['total_deaths_per_million'].values.tolist()
 case_fatality_ratio = table5top10['case_fatality_ratio'].values.tolist()
 
