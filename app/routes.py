@@ -93,6 +93,7 @@ print(locationbctable1,populationbctable1,total_casesbctable1,total_deathsbctabl
 #table2:
 #top 10 worst countries filtered by total_deaths_per_million
 table2 = data.groupby(['iso_code','location','total_cases','total_deaths','total_deaths_per_million','total_tests_per_thousand']).size().reset_index().groupby('iso_code').max()
+table2 = table2.round(decimals=2)
 sortable2 = table2.sort_values(by ='total_deaths_per_million', ascending = False)
 top10t2 = sortable2.head(n=10)
 
@@ -125,6 +126,7 @@ print(locationbc2t2,total_casesbc2t2,total_deathsbc2t2,total_deaths_per_millionb
 #this table is sorted by the "total_cases_per_million", and it displays the top worst 10 countries.
 
 table3 = data.groupby(['iso_code','location','population','total_cases_per_million','gdp_per_capita','extreme_poverty','diabetes_prevalence','cardiovasc_death_rate','male_smokers','female_smokers','aged_65_older']).size().reset_index().groupby('iso_code').max()
+table3 = table3.round(decimals=2)
 sortable3 = table3.sort_values(by ='total_cases_per_million', ascending = False)
 top10t3 = sortable3.head(n=10)
 
@@ -146,7 +148,8 @@ print(locationtable3,populationtable3,gdp_per_capita_table3,extreme_poverty_tabl
 #this table will display the sick population in %
 
 table4 = data.groupby(['iso_code','location','population','median_age','total_cases','total_tests_per_thousand','new_cases_per_million']).size().reset_index().groupby('iso_code').max()
-table4['sick_population'] = ((table4['total_cases'] * 100) / table4['population'])
+table4 = table4.round(decimals=2)
+table4['sick_population'] = ((table4['total_cases'] * 100) / table4['population']).round(decimals=2)
 table4 = table4.sort_values(by ='sick_population', ascending = False)
 table4top10 = table4.head(n=10)
 
@@ -165,7 +168,8 @@ print(locationtable3,populationtable3,gdp_per_capita_table3,extreme_poverty_tabl
 #this table will display the Fatality case ratio per country
 
 table5 = data.groupby(['iso_code','location','population','median_age','total_cases','total_deaths','total_deaths_per_million']).size().reset_index().groupby('iso_code').max()
-table5['case_fatality_ratio'] = ((table5['total_deaths'] * 100) / table5['total_cases'])
+table5 = table5.round(decimals=2)
+table5['case_fatality_ratio'] = ((table5['total_deaths'] * 100) / table5['total_cases']).round(decimals=2)
 table5 = table5.sort_values(by =['case_fatality_ratio', 'population'], ascending = False)
 table5top10 = table5.head(n=10)
 
