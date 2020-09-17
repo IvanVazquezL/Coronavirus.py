@@ -239,7 +239,7 @@ data: {
          backgroundColor: "rgba(151,187,205,0.2)",
          borderColor:"rgba(151,187,205,1)",
          borderWidth:2,
-         label: "Total number of COVID-19 deaths",
+         label: "Total number of COVID-19 cases",
          data : [
                    {% for item in total_casesbc2t2 %}
                       "{{ item }}",
@@ -306,7 +306,7 @@ options: {
                                          }
                                });
 
-                                return ['Total Deaths: '+list[tooltipItem.index],"Total Tests per Thousand: "+listCases[tooltipItem.index],"Total Deaths per Million"+listPerMillion[tooltipItem.index]];
+                                return ['Total Deaths: '+list[tooltipItem.index],"Total Tests per Thousand: "+listCases[tooltipItem.index],"Total Deaths per Million: "+listPerMillion[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
@@ -480,7 +480,7 @@ options: {
                                          }
                                });
 
-                                return ['Population: '+list[tooltipItem.index],"GDP per capita: "+listCases[tooltipItem.index],"Extreme Poverty: "+listPerMillion[tooltipItem.index],"Diabetes Prevalence: "+listDiabetes[tooltipItem.index],"Cardiovascular Death Rate: "+listCardiovascular,"Male smokers: "+listMaleSmokers,"Female smokers: "+listFemaleSmokers,"Population older than 65: "+listOlder];
+                                return ['Population: '+list[tooltipItem.index],"GDP per capita: "+listCases[tooltipItem.index],"Extreme Poverty: "+listPerMillion[tooltipItem.index],"Diabetes Prevalence: "+listDiabetes[tooltipItem.index],"Cardiovascular Death Rate: "+listCardiovascular[tooltipItem.index],"Male smokers: "+listMaleSmokers[tooltipItem.index],"Female smokers: "+listFemaleSmokers[tooltipItem.index],"Population older than 65: "+listOlder[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
@@ -626,7 +626,7 @@ options: {
 
 
 
-                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers];
+                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
@@ -772,7 +772,7 @@ options: {
 
 
 
-                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index],"Total Deaths per Million: "+listMaleSmokers];
+                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index],"Total Deaths per Million: "+listMaleSmokers[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
