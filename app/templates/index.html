@@ -3,11 +3,33 @@
         <title>Coronavirus.py</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+ <style>
+ ul {
+   position: relative;
+ list-style: none;
+ margin-left: 0;
+ padding-left: 1.2em;
+}
+
+
+
+
+
+
+    li a{
+        color: DarkBlue;
+    }
+
+
+
+</style>
+</head>
  <body>
 
-          <div class="" style="background-color:rgba(151,187,205,0.2);font-family: 'Roboto Mono', monospace;">
-
+          <!-- <div class="" style="background-color:rgba(151,187,205,0.2);font-family: 'Roboto Mono', monospace;"> -->
+          <div class="" style="background-color:rgba(151,187,205,0.2);font-family: 'Kumbh Sans', sans-serif;">
 
             <div class="float-right pt-3 mr-5" >
               <a href="about">About us</a>
@@ -21,22 +43,43 @@
               <ul>
                 <li>
                   <h6>
-                    <a href="graph1">
+                    <a href="#graph1">
                       Countries that has been infected the most
                     </a>
                   </h6>
                 </li>
                 <li>
                   <h6>
-                    <a href="graph2">
+                    <a href="#graph2">
                       Countries with the highest number of deceased
                     </a>
                   </h6>
                 </li>
                 <li>
                   <h6>
-                    <a href="graph3">
+                    <a href="#graph3">
                       Best Global Responses to COVID-19
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#graph4">
+Countries with most cases per million
+</a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#graph5">
+                    Percentage of population that got COVID-19
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="#graph6">
+                    Countries with the highest Case Fatality Rate
                     </a>
                   </h6>
                 </li>
@@ -120,6 +163,7 @@
             <!-- End Top 7 Best Responses chart -->
 
             <!-- Start Top 10 Cases per Million chart -->
+            <h3 id = "graph4" class="mt-5 mb-5">Countries with most cases per million:</h3>
             <div class="d-flex justify-content-center">
               <div class="mt-5" style="width:600; height:400">
                 <canvas id="chartTotalCasesPerMillion"></canvas>
@@ -128,6 +172,7 @@
             <!-- End Top 10 Cases per Million chart -->
 
             <!-- Start Sick Population Percentage chart -->
+            <h3 id = "graph5" class="mt-5 mb-5">Percentage of population that got COVID-19:</h3>
             <div class="d-flex justify-content-center">
               <div class="mt-5" style="width:600; height:400">
                 <canvas id="chartSickPopulationPercentage"></canvas>
@@ -136,7 +181,7 @@
             <!-- End Sick Population Percentage chart -->
 
             <!-- Start Fatality Case Ratio chart -->
-            <h3 class="mt-5 mb-5">Countries with the highest Case Fatality Rate:</h3>
+            <h3 id = "graph6" class="mt-5 mb-5">Countries with the highest Case Fatality Rate:</h3>
             <div class="d-flex justify-content-between">
               <div style="width:600; height:400">
                 <canvas id="chartFatalityCaseRatio"></canvas>
