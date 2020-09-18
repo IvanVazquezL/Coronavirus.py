@@ -62,24 +62,25 @@ max=maxValue(values[0])
 #davidt pandas code
 
 #table1 (tabla con mayores casos en el mundo 5 países)
-csv = data.groupby(['iso_code','location','population','total_cases','total_deaths']).size().reset_index().groupby('iso_code').max()
-table1 = csv.drop('OWID_WRL')
-table11 = table1.sort_values(by ='total_deaths', ascending = False)
+csv = data.groupby(['iso_code','location','population','total_tests_per_thousand','hospital_beds_per_thousand','total_deaths']).size().reset_index().groupby('iso_code').max()
+table11 = csv.sort_values(by ='total_deaths', ascending = False)
 top10table1 = table11.head(n=10)
 
 locationtable1 = top10table1['location'].values.tolist()
 populationtable1 = top10table1['population'].values.astype(int).tolist()
-total_casestable1 = top10table1['total_cases'].values.astype(int).tolist()
+total_tests_per_thousandtable1 = top10table1['total_tests_per_thousand'].values.astype(int).tolist()
+hospital_beds_per_thousandstable1 = top10table1['hospital_beds_per_thousand'].values.astype(int).tolist()
 total_deathstable1 = top10table1['total_deaths'].values.astype(int).tolist()
 
 print("TABLE 1:")
-print(locationtable1,populationtable1,total_casestable1,total_deathstable1)
+print(locationtable1,populationtable1,total_tests_per_thousandtable1,hospital_beds_per_thousandstable1,total_deathstable1)
 
 #bctable1:
 #top 7 countries that best managed covid-19 Uwu according to TIME Magazine (upale)
 #bc = best_cases in the world
 
-bctable1 = table11.loc[(table11['location'] == 'Taiwan') | (table11['location'] == 'Singapore') | (table11['location'] == 'South Korea') | (table11['location'] == 'New Zealand') | (table11['location'] == 'Australia') | (table11['location'] == 'United Arab Emirates')| (table11['location'] == 'Greece')]
+bct1 = data.groupby(['iso_code','location','population','total_cases','total_deaths']).size().reset_index().groupby('iso_code').max()
+bctable1 = bct1.loc[(bct1['location'] == 'Taiwan') | (bct1['location'] == 'Singapore') | (bct1['location'] == 'South Korea') | (bct1['location'] == 'New Zealand') | (bct1['location'] == 'Australia') | (bct1['location'] == 'United Arab Emirates')| (bct1['location'] == 'Greece')]
 bctable1 = bctable1.sort_values(by ='total_deaths', ascending = False)
 
 locationbctable1 = bctable1['location'].values.tolist()
@@ -193,4 +194,4 @@ print(locationtable3,populationtable3,gdp_per_capita_table3,extreme_poverty_tabl
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,total_casestable1=total_casestable1,locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2,locationtable3=locationtable3,populationtable3=populationtable3,total_cases_per_milliontable3=total_cases_per_milliontable3,gdp_per_capita_table3=gdp_per_capita_table3,extreme_poverty_table3=extreme_poverty_table3,diabetes_prevalence_table3=diabetes_prevalence_table3,cardiovasc_death_rate_table3=cardiovasc_death_rate_table3,male_smokers_table3=male_smokers_table3,female_smokers_table3=female_smokers_table3,aged_65_older_table3=aged_65_older_table3,locationtable4=locationtable4,populationtable4=populationtable4,median_agetable4=median_agetable4,total_casestable4=total_casestable4,total_tests_per_thousandtable4=total_tests_per_thousandtable4,new_cases_per_million=new_cases_per_million,sick_population=sick_population,locationtable5=locationtable5,populationtable5=populationtable5,median_agetable5=median_agetable5,total_casestable5=total_casestable5,total_deathstable5=total_deathstable5,total_deaths_per_milliontable5=total_deaths_per_milliontable5,case_fatality_ratio=case_fatality_ratio,caseFatalityWorld=caseFatalityWorld)
+    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1, total_tests_per_thousandtable1 = total_tests_per_thousandtable1, hospital_beds_per_thousandstable1 = hospital_beds_per_thousandstable1, locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2,locationtable3=locationtable3,populationtable3=populationtable3,total_cases_per_milliontable3=total_cases_per_milliontable3,gdp_per_capita_table3=gdp_per_capita_table3,extreme_poverty_table3=extreme_poverty_table3,diabetes_prevalence_table3=diabetes_prevalence_table3,cardiovasc_death_rate_table3=cardiovasc_death_rate_table3,male_smokers_table3=male_smokers_table3,female_smokers_table3=female_smokers_table3,aged_65_older_table3=aged_65_older_table3,locationtable4=locationtable4,populationtable4=populationtable4,median_agetable4=median_agetable4,total_casestable4=total_casestable4,total_tests_per_thousandtable4=total_tests_per_thousandtable4,new_cases_per_million=new_cases_per_million,sick_population=sick_population,locationtable5=locationtable5,populationtable5=populationtable5,median_agetable5=median_agetable5,total_casestable5=total_casestable5,total_deathstable5=total_deathstable5,total_deaths_per_milliontable5=total_deaths_per_milliontable5,case_fatality_ratio=case_fatality_ratio,caseFatalityWorld=caseFatalityWorld)
