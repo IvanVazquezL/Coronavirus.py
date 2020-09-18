@@ -2,21 +2,51 @@
     <head>
         <title>Coronavirus.py</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+ <body>
 
- <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>    <body>
-        <div class="container text-center mt-5">
-            <h1>Coronavirus Oubreak</h1>
-            <h2>Coronavirus cases worldwide</h2>
-            <h2>{{ worldValue }}</h2>
+          <div class="" style="background-color:rgba(151,187,205,0.2);font-family: 'Roboto Mono', monospace;">
 
-            <div class="container text-center mt-5">
-              <h3>State of purpose:</h3>
-              <p>Inform the reader about the coronavirus outbreak and to prove according to data why in this pandemic more than ever we need to help one another whenever we can.</p>
-              <h3>What can you find in this page?:</h3>
-              <p>How the countries are doing during the coronavirus outbreak. To fully compare one country to another, we gathered data such as: total cases of COVID-19 per million people, country gdp (gross domestic product), country population, median age of each country, etc.</p>
-              <p>The following data is up to date.</p>
+
+            <div class="float-right pt-3 mr-5" >
+              <a href="about">About us</a>
             </div>
 
+            <div class="container pt-5 pb-5 mb-5">
+              <h1 >Coronavirus.py</h1>
+              <hr>
+              <br>
+              <h3>What can you find in this page?</h3>
+              <ul>
+                <li>
+                  <h6>
+                    <a href="graph1">
+                      Countries that has been infected the most
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="graph2">
+                      Countries with the highest number of deceased
+                    </a>
+                  </h6>
+                </li>
+                <li>
+                  <h6>
+                    <a href="graph3">
+                      Best Global Responses to COVID-19
+                    </a>
+                  </h6>
+                </li>
+              </ul>
+              <br>
+              <p>The following data is up to {{modified}}</p>
+            </div>
+          </div>
+
+          <div class="container text-center">
             <!-- Start Top 10 coronavirus chart -->
             <div class="d-flex justify-content-center">
               <div class="mt-5" style="width:600; height:400">
@@ -58,12 +88,26 @@
             <!-- End Sick Population Percentage chart -->
 
             <!-- Start Fatality Case Ratio chart -->
-            <div class="d-flex justify-content-center">
-              <div class="mt-5" style="width:600; height:400">
-                <canvas id="chartFatalityCaseRatio"></canvas>
-              </div>
-            </div>
-            <!-- End Fatality Case Ratio chart -->
+                  <h3 class="mt-5 mb-5">Countries with the highest Case Fatality Rate:</h3>
+                  <div class="d-flex justify-content-between">
+                    <div style="width:600; height:400">
+                      <canvas id="chartFatalityCaseRatio"></canvas>
+                    </div>
+                    <div class="mt-5 ml-5 text-justify" style="width:600; height:400;">
+                        <h6>The Case Fatality Rate(CFR) is the number of confirmed deaths divided by
+                          the number of confirmed cases. The worldwide CFR is {{caseFatalityWorld}}%
+                        </h6>
+                        <br>
+                        <h6>Yemen has the highest CFR in the world with a {{case_fatality_ratio[0]}}%
+                        </h6>
+      <br>
+                        <a href="https://www.undp.org/content/undp/en/home/blog/2020/covid-19-ravages-an-already-desperate-yemen.html">
+                        <h6>"After nearly six years of war, 80 percent of Yemen’s 30 million population—more than 24 million people—depend on humanitarian assistance to survive. Millions are severely malnourished and weakened by diseases such as dengue, malaria, and cholera. They suffer from pre-existing conditions and are uniquely vulnerable to the worst and deadliest impact of COVID-19.
+
+      Yemen is already the world’s worst humanitarian and development crisis."</h6></a>
+                    </div>
+                  </div>
+                  <!-- End Fatality Case Ratio chart -->
 
     <script>
     // Start Top 10 coronavirus chart
@@ -806,6 +850,9 @@ options: {
 // End Fatality Case Ratio chart
     </script>
         </div>
+        <footer class="mt-5" style="height:200;background-color:rgba(151,187,205,0.2);">
+
+        </footer>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

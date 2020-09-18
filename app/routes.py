@@ -3,6 +3,8 @@ import operator
 from app import app
 import pandas as pd
 from itertools import islice
+import os
+import datetime
 
 def take(n, iterable):
     "Return first n items of the iterable as a list"
@@ -11,6 +13,11 @@ def take(n, iterable):
 pd.options.display.float_format = '{:,.0f}'.format
 
 data = pd.read_csv("owid-covid-data.csv")
+
+t = os.path.getmtime("owid-covid-data.csv")
+modified = str(datetime.datetime.fromtimestamp(t))
+modified = modified[:10]
+print(modified)
 
 #Dictionaries
 dicto = {}
@@ -187,4 +194,8 @@ print(locationtable3,populationtable3,gdp_per_capita_table3,extreme_poverty_tabl
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,total_casestable1=total_casestable1,locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2,locationtable3=locationtable3,populationtable3=populationtable3,total_cases_per_milliontable3=total_cases_per_milliontable3,gdp_per_capita_table3=gdp_per_capita_table3,extreme_poverty_table3=extreme_poverty_table3,diabetes_prevalence_table3=diabetes_prevalence_table3,cardiovasc_death_rate_table3=cardiovasc_death_rate_table3,male_smokers_table3=male_smokers_table3,female_smokers_table3=female_smokers_table3,aged_65_older_table3=aged_65_older_table3,locationtable4=locationtable4,populationtable4=populationtable4,median_agetable4=median_agetable4,total_casestable4=total_casestable4,total_tests_per_thousandtable4=total_tests_per_thousandtable4,new_cases_per_million=new_cases_per_million,sick_population=sick_population,locationtable5=locationtable5,populationtable5=populationtable5,median_agetable5=median_agetable5,total_casestable5=total_casestable5,total_deathstable5=total_deathstable5,total_deaths_per_milliontable5=total_deaths_per_milliontable5,case_fatality_ratio=case_fatality_ratio)
+    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,total_casestable1=total_casestable1,locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2,locationtable3=locationtable3,populationtable3=populationtable3,total_cases_per_milliontable3=total_cases_per_milliontable3,gdp_per_capita_table3=gdp_per_capita_table3,extreme_poverty_table3=extreme_poverty_table3,diabetes_prevalence_table3=diabetes_prevalence_table3,cardiovasc_death_rate_table3=cardiovasc_death_rate_table3,male_smokers_table3=male_smokers_table3,female_smokers_table3=female_smokers_table3,aged_65_older_table3=aged_65_older_table3,locationtable4=locationtable4,populationtable4=populationtable4,median_agetable4=median_agetable4,total_casestable4=total_casestable4,total_tests_per_thousandtable4=total_tests_per_thousandtable4,new_cases_per_million=new_cases_per_million,sick_population=sick_population,locationtable5=locationtable5,populationtable5=populationtable5,median_agetable5=median_agetable5,total_casestable5=total_casestable5,total_deathstable5=total_deathstable5,total_deaths_per_milliontable5=total_deaths_per_milliontable5,case_fatality_ratio=case_fatality_ratio,modified=modified)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
