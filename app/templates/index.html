@@ -48,25 +48,73 @@
 
           <div class="container text-center">
             <!-- Start Top 10 coronavirus chart -->
-            <div class="d-flex justify-content-center">
-              <div class="mt-5" style="width:600; height:400">
+            <h3 id = "graph1" class="mt-5 mb-5">Countries that has been infected the most:</h3>
+            <div class="d-flex justify-content-between">
+              <div style="width:600; height:400">
                 <canvas id="chartTop10Cases"></canvas>
+              </div>
+              <div class="ml-5 text-justify" style="width:600; height:400;">
+                  <h6>COVID-19 has been declared a pandemic by the WHO <b>(World Health Organization)</b> since <b>March 11 of 2020</b>.
+                    Obviously, larger countries tend to have higher numbers both of cases and of deaths. But there are
+                    many factors in play: population, countries with ageing population may hit harder because COVID-19 is
+                    more dangerous to older population. </h6>
+                  <br>
+                  <h6>In the <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020">following link</a> you’ll find the words from <b>Dr. Tedros Adhanom Ghebreyesus</b> which is the
+                    <b>Director General of the World Health Organization.</b> In this letter he writes the following:</h6>
+                  <br>
+                  <h6><i>"WHO has been assessing this outbreak around the clock and we are deeply concerned both by the alarming
+                    levels of spread and severity, and by the <b>alarming levels of inaction</b>. We have therefore made the assessment
+                    that COVID-19 can be characterized as a pandemic. <br> <br> Pandemic is not a word to use lightly or carelessly.
+                    It is a word that, if misused, can cause unreasonable fear, or unjustified acceptance that the fight is over,
+                    leading to unnecessary suffering and death."<br>
+                    World Health Organization</i></h6>
               </div>
             </div>
             <!-- End Top 10 coronavirus chart -->
 
             <!-- Start Top 10 Deaths Coronavirus chart -->
-            <div class="d-flex justify-content-center">
-              <div class="mt-5" style="width:600; height:400">
+            <h3 id = "graph2" class="mt-5 mb-5">Countries with the highest number of deceased:</h3>
+            <div class="d-flex justify-content-between">
+              <div style="width:600; height:400">
                 <canvas id="chartTop10Deaths"></canvas>
+              </div>
+              <div class="ml-5 text-justify" style="width:600; height:400;">
+                  <h6>According to Our World in Data, the actual total death toll from COVID-19 is <b>likely to be
+                    higher than the number of confirmed deaths</b> this is due to limited testing and problems in the
+                    attribution of the cause of death.  </h6>
+                  <br>
+                  <h6>How COVID-19 deaths are recorded may differ between countries <b>(e.g. some countries may only count hospital deaths,
+                    whilst others have started to include deaths in homes</b>.</h6>
+                  <br>
+                  <h6>The widely available data on confirmed cases only become meaningful when it can be interpreted considering how much a country is testing.</h6>
               </div>
             </div>
             <!-- End Top 10 Deaths Coronavirus chart -->
 
             <!-- Start Top 7 Best Responses chart -->
-            <div class="d-flex justify-content-center">
-              <div class="mt-5" style="width:600; height:400">
+            <h3 id = "graph3" class="mt-5 mb-5">Best Global Responses to COVID-19:</h3>
+            <div class="d-flex justify-content-between">
+              <div style="width:600; height:400">
                 <canvas id="chartTop7Responses"></canvas>
+              </div>
+              <div class="ml-5 text-justify" style="width:600; height:400;">
+                  <h6>These are the best countries that <b>best managed COVID-19</b> and they serve as an example to
+                    other countries. These countries had a better response in: healthcare management, political
+                    response, and financial policy response.</h6>
+                  <br>
+                  <h6>The case of <b>Taiwan</b> is remarkable, <a href="https://time.com/5851633/best-global-responses-covid-19/">the newspaper Times wrote</a> the following:</h6>
+                  <br>
+                  <h6><i>“In the initial days of an outbreak, the only thing as bad as being the epicenter of a global pandemic
+                    is being right next door to one… especially one that has it out for you (politically speaking). Despite that,
+                    the self-governing island has managed a truly admirable response in less-than-ideal circumstances; as of this week,
+                    Taiwan has registered just 443 cases and seven casualties.
+                    <br>
+                    <br>
+                    Rather than shuttering its economy for weeks on end in an attempt to slow the virus,
+                    Taiwan went another way—after quickly closing its borders and banning exports of surgical masks,
+                    the government used contact tracing and mobile Sim-tracking to identify and ensure those in
+                    quarantine were actually abiding by the rules.”
+                  </i></h6>
               </div>
             </div>
             <!-- End Top 7 Best Responses chart -->
@@ -88,26 +136,27 @@
             <!-- End Sick Population Percentage chart -->
 
             <!-- Start Fatality Case Ratio chart -->
-                  <h3 class="mt-5 mb-5">Countries with the highest Case Fatality Rate:</h3>
-                  <div class="d-flex justify-content-between">
-                    <div style="width:600; height:400">
-                      <canvas id="chartFatalityCaseRatio"></canvas>
-                    </div>
-                    <div class="mt-5 ml-5 text-justify" style="width:600; height:400;">
-                        <h6>The Case Fatality Rate(CFR) is the number of confirmed deaths divided by
-                          the number of confirmed cases. The worldwide CFR is {{caseFatalityWorld}}%
-                        </h6>
-                        <br>
-                        <h6>Yemen has the highest CFR in the world with a {{case_fatality_ratio[0]}}%
-                        </h6>
-      <br>
-                        <a href="https://www.undp.org/content/undp/en/home/blog/2020/covid-19-ravages-an-already-desperate-yemen.html">
-                        <h6>"After nearly six years of war, 80 percent of Yemen’s 30 million population—more than 24 million people—depend on humanitarian assistance to survive. Millions are severely malnourished and weakened by diseases such as dengue, malaria, and cholera. They suffer from pre-existing conditions and are uniquely vulnerable to the worst and deadliest impact of COVID-19.
+            <h3 class="mt-5 mb-5">Countries with the highest Case Fatality Rate:</h3>
+            <div class="d-flex justify-content-between">
+              <div style="width:600; height:400">
+                <canvas id="chartFatalityCaseRatio"></canvas>
+              </div>
+              <div class="mt-5 ml-5 text-justify" style="width:600; height:400;">
+                  <h6>The Case Fatality Rate(CFR) is the number of confirmed deaths divided by
+                    the number of confirmed cases. The worldwide CFR is {{caseFatalityWorld}}%
+                  </h6>
+                  <br>
+                  <h6>Yemen has the highest CFR in the world with a {{case_fatality_ratio[0]}}%
+                  </h6>
+<br>
+                  <a href="https://www.undp.org/content/undp/en/home/blog/2020/covid-19-ravages-an-already-desperate-yemen.html">
+                  <h6>"After nearly six years of war, 80 percent of Yemen’s 30 million population—more than 24 million people—depend on humanitarian assistance to survive. Millions are severely malnourished and weakened by diseases such as dengue, malaria, and cholera. They suffer from pre-existing conditions and are uniquely vulnerable to the worst and deadliest impact of COVID-19.
 
-      Yemen is already the world’s worst humanitarian and development crisis."</h6></a>
-                    </div>
-                  </div>
-                  <!-- End Fatality Case Ratio chart -->
+Yemen is already the world’s worst humanitarian and development crisis."</h6></a>
+              </div>
+            </div>
+            <!-- End Fatality Case Ratio chart -->
+
 
     <script>
     // Start Top 10 coronavirus chart
@@ -352,9 +401,9 @@ options: {
 
                                listPerMillion.forEach(function(element, index, array){
                                  if(parseInt(element) >= 1000){
-                                            listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                          } else {
-                                            listCases[index]= element;
+                                            listPerMillion[index]= element;
                                          }
                                });
 
@@ -574,7 +623,7 @@ data: {
          backgroundColor: "rgba(151,187,205,0.2)",
          borderColor:"rgba(151,187,205,1)",
          borderWidth:2,
-         label: "Sick Population Percentage",
+         label: "Percentage of Population that got Covid",
          data : [
                    {% for item in sick_population %}
                       "{{ item }}",
@@ -595,9 +644,9 @@ options: {
 
                                  var value = data.datasets[0].data[tooltipItem.index];
                                  if(parseInt(value) >= 1000){
-                                            return "Sick Population Percentage: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            return "Percentage of Population that got Covid: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" %";
                                          } else {
-                                            return "Sick Population Percentage: "+value;
+                                            return "Percentage of Population that got Covid: "+value +" %";
                                          }
                              },
                              afterLabel: function(tooltipItem, data) {
@@ -678,7 +727,7 @@ options: {
 
 
 
-                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
+                                return ["Total Cases: "+listPerMillion[tooltipItem.index],'Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
@@ -720,7 +769,7 @@ data: {
          backgroundColor: "rgba(151,187,205,0.2)",
          borderColor:"rgba(151,187,205,1)",
          borderWidth:2,
-         label: "Fatality Case Ratio",
+         label: "Case Fatality Rate",
          data : [
                    {% for item in case_fatality_ratio %}
                       "{{ item }}",
@@ -741,9 +790,9 @@ options: {
 
                                  var value = data.datasets[0].data[tooltipItem.index];
                                  if(parseInt(value) >= 1000){
-                                            return "Fatality Case Ratio: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            return "Case Fatality Rate: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"%";
                                          } else {
-                                            return "Fatality Case Ratio: "+value;
+                                            return "Case Fatality Rate: "+value+"%";
                                          }
                              },
                              afterLabel: function(tooltipItem, data) {
@@ -823,8 +872,8 @@ options: {
                                });
 
 
-
-                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index],"Total Deaths per Million: "+listMaleSmokers[tooltipItem.index]];
+                               // return ['Population: '+list[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Deaths per Million: "+listMaleSmokers[tooltipItem.index]];
+                                return ["Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips

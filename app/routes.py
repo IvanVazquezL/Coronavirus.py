@@ -69,24 +69,25 @@ max=maxValue(values[0])
 #davidt pandas code
 
 #table1 (tabla con mayores casos en el mundo 5 países)
-csv = data.groupby(['iso_code','location','population','total_cases','total_deaths']).size().reset_index().groupby('iso_code').max()
-table1 = csv.drop('OWID_WRL')
-table11 = table1.sort_values(by ='total_deaths', ascending = False)
+csv = data.groupby(['iso_code','location','population','total_tests_per_thousand','hospital_beds_per_thousand','total_deaths']).size().reset_index().groupby('iso_code').max()
+table11 = csv.sort_values(by ='total_deaths', ascending = False)
 top10table1 = table11.head(n=10)
 
 locationtable1 = top10table1['location'].values.tolist()
 populationtable1 = top10table1['population'].values.astype(int).tolist()
-total_casestable1 = top10table1['total_cases'].values.astype(int).tolist()
+total_tests_per_thousandtable1 = top10table1['total_tests_per_thousand'].values.astype(int).tolist()
+hospital_beds_per_thousandstable1 = top10table1['hospital_beds_per_thousand'].values.astype(int).tolist()
 total_deathstable1 = top10table1['total_deaths'].values.astype(int).tolist()
 
 print("TABLE 1:")
-print(locationtable1,populationtable1,total_casestable1,total_deathstable1)
+print(locationtable1,populationtable1,total_tests_per_thousandtable1,hospital_beds_per_thousandstable1,total_deathstable1)
 
 #bctable1:
 #top 7 countries that best managed covid-19 Uwu according to TIME Magazine (upale)
 #bc = best_cases in the world
 
-bctable1 = table11.loc[(table11['location'] == 'Taiwan') | (table11['location'] == 'Singapore') | (table11['location'] == 'South Korea') | (table11['location'] == 'New Zealand') | (table11['location'] == 'Australia') | (table11['location'] == 'United Arab Emirates')| (table11['location'] == 'Greece')]
+bct1 = data.groupby(['iso_code','location','population','total_cases','total_deaths']).size().reset_index().groupby('iso_code').max()
+bctable1 = bct1.loc[(bct1['location'] == 'Taiwan') | (bct1['location'] == 'Singapore') | (bct1['location'] == 'South Korea') | (bct1['location'] == 'New Zealand') | (bct1['location'] == 'Australia') | (bct1['location'] == 'United Arab Emirates')| (bct1['location'] == 'Greece')]
 bctable1 = bctable1.sort_values(by ='total_deaths', ascending = False)
 
 locationbctable1 = bctable1['location'].values.tolist()
@@ -178,6 +179,12 @@ table5 = data.groupby(['iso_code','location','population','median_age','total_ca
 table5 = table5.round(decimals=2)
 table5['case_fatality_ratio'] = ((table5['total_deaths'] * 100) / table5['total_cases']).round(decimals=2)
 table5 = table5.sort_values(by =['case_fatality_ratio', 'population'], ascending = False)
+print("****************************************************")
+caseFatalityWorld = table5.loc[table5['location'] == "World"]
+print(caseFatalityWorld)
+print(caseFatalityWorld['case_fatality_ratio'].values[0])
+caseFatalityWorld = caseFatalityWorld['case_fatality_ratio'].values[0]
+print("****************************************************")
 table5top10 = table5.head(n=10)
 
 locationtable5 = table5top10['location'].values.tolist()
@@ -199,3 +206,4 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
