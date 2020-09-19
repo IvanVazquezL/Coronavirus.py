@@ -271,13 +271,18 @@ options: {
                              afterLabel: function(tooltipItem, data) {
                                var list = [];
                                var listCases = []
+                               var listhospital_beds = []
 
                                {% for item in populationtable1 %}
                                   list.push("{{ item }}");
                                {% endfor %}
 
-                               {% for item in total_casestable1 %}
+                               {% for item in total_tests_per_thousandtable1 %}
                                   listCases.push("{{ item }}");
+                               {% endfor %}
+
+                               {% for item in hospital_beds_per_thousandstable1 %}
+                                  listhospital_beds.push("{{ item }}");
                                {% endfor %}
 
                                list.forEach(function(element, index, array){
@@ -298,7 +303,7 @@ options: {
 console.log(tooltipItem);
 console.log({{populationtable1[0]}});
 console.log(list[0])
-                                return ['Population: '+list[tooltipItem.index],"Total cases: "+listCases[tooltipItem.index]];
+                                return ['Population: '+list[tooltipItem.index],"Total tests per thousands: "+listCases[tooltipItem.index],"Hospital Beds per Thousands: " + listhospital_beds[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
