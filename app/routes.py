@@ -133,16 +133,16 @@ print(locationbc2t2,total_casesbc2t2,total_deathsbc2t2,total_deaths_per_millionb
 #table3
 #this table is sorted by the "total_cases_per_million", and it displays the top worst 10 countries.
 
+#hice cambios a la table3
+#quité lo siguiente: populationtable3, extreme_poverty_table3, gdp_per_capita_table3
+
 table3 = data.groupby(['iso_code','location','population','total_cases_per_million','gdp_per_capita','extreme_poverty','diabetes_prevalence','cardiovasc_death_rate','male_smokers','female_smokers','aged_65_older']).size().reset_index().groupby('iso_code').max()
 table3 = table3.round(decimals=2)
 sortable3 = table3.sort_values(by ='total_cases_per_million', ascending = False)
 top10t3 = sortable3.head(n=10)
 
 locationtable3 = top10t3['location'].values.tolist()
-populationtable3 = top10t3['population'].values.astype(int).tolist()
 total_cases_per_milliontable3 = top10t3['total_cases_per_million'].values.tolist()
-gdp_per_capita_table3 = top10t3['gdp_per_capita'].values.tolist()
-extreme_poverty_table3 = top10t3['extreme_poverty'].values.tolist()
 diabetes_prevalence_table3 = top10t3['diabetes_prevalence'].values.tolist()
 cardiovasc_death_rate_table3 = top10t3['cardiovasc_death_rate'].values.tolist()
 male_smokers_table3 = top10t3['male_smokers'].values.tolist()
@@ -150,7 +150,7 @@ female_smokers_table3 = top10t3['female_smokers'].values.tolist()
 aged_65_older_table3 = top10t3['aged_65_older'].values.tolist()
 
 print('TABLE3:')
-print(locationtable3,populationtable3,gdp_per_capita_table3,extreme_poverty_table3,diabetes_prevalence_table3,cardiovasc_death_rate_table3,male_smokers_table3,female_smokers_table3,aged_65_older_table3)
+print(locationtable3,total_cases_per_milliontable3,diabetes_prevalence_table3,cardiovasc_death_rate_table3,male_smokers_table3,female_smokers_table3,aged_65_older_table3)
 
 #table4
 #this table will display the sick population in %
@@ -170,7 +170,7 @@ new_cases_per_million = table4top10['new_cases_per_million'].values.tolist()
 sick_population = table4top10['sick_population'].values.tolist()
 
 print('TABLE4:')
-print(locationtable3,populationtable3,gdp_per_capita_table3,extreme_poverty_table3,diabetes_prevalence_table3,cardiovasc_death_rate_table3,male_smokers_table3,female_smokers_table3,aged_65_older_table3,locationtable4,populationtable4,median_agetable4,total_casestable4,total_casestable4,total_tests_per_thousandtable4,new_cases_per_million,sick_population)
+print(locationtable4,populationtable4,median_agetable4,total_casestable4,total_tests_per_thousandtable4,new_cases_per_million,sick_population)
 
 #table5
 #this table will display the Fatality case ratio per country
@@ -196,12 +196,12 @@ total_deaths_per_milliontable5 = table5top10['total_deaths_per_million'].values.
 case_fatality_ratio = table5top10['case_fatality_ratio'].values.tolist()
 
 print('TABLE5:')
-print(locationtable3,populationtable3,gdp_per_capita_table3,extreme_poverty_table3,diabetes_prevalence_table3,cardiovasc_death_rate_table3,male_smokers_table3,female_smokers_table3,aged_65_older_table3,locationtable4,populationtable4,median_agetable4,total_casestable4,total_casestable4,total_tests_per_thousandtable4,new_cases_per_million,sick_population,locationtable5,populationtable5,median_agetable5,total_casestable5,total_deathstable5,total_deaths_per_milliontable5,case_fatality_ratio)
+print(locationtable5, populationtable5, median_agetable5, total_casestable5, total_deathstable5, total_deaths_per_milliontable5,case_fatality_ratio)
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2,locationtable3=locationtable3,populationtable3=populationtable3,total_cases_per_milliontable3=total_cases_per_milliontable3,gdp_per_capita_table3=gdp_per_capita_table3,extreme_poverty_table3=extreme_poverty_table3,diabetes_prevalence_table3=diabetes_prevalence_table3,cardiovasc_death_rate_table3=cardiovasc_death_rate_table3,male_smokers_table3=male_smokers_table3,female_smokers_table3=female_smokers_table3,aged_65_older_table3=aged_65_older_table3,locationtable4=locationtable4,populationtable4=populationtable4,median_agetable4=median_agetable4,total_casestable4=total_casestable4,total_tests_per_thousandtable4=total_tests_per_thousandtable4,new_cases_per_million=new_cases_per_million,sick_population=sick_population,locationtable5=locationtable5,populationtable5=populationtable5,median_agetable5=median_agetable5,total_casestable5=total_casestable5,total_deathstable5=total_deathstable5,total_deaths_per_milliontable5=total_deaths_per_milliontable5,case_fatality_ratio=case_fatality_ratio,modified=modified,caseFatalityWorld=caseFatalityWorld, total_tests_per_thousandtable1 = total_tests_per_thousandtable1, hospital_beds_per_thousandstable1 = hospital_beds_per_thousandstable1)
+    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2,locationtable3=locationtable3,total_cases_per_milliontable3=total_cases_per_milliontable3,diabetes_prevalence_table3=diabetes_prevalence_table3,cardiovasc_death_rate_table3=cardiovasc_death_rate_table3,male_smokers_table3=male_smokers_table3,female_smokers_table3=female_smokers_table3,aged_65_older_table3=aged_65_older_table3,locationtable4=locationtable4,populationtable4=populationtable4,median_agetable4=median_agetable4,total_casestable4=total_casestable4,total_tests_per_thousandtable4=total_tests_per_thousandtable4,new_cases_per_million=new_cases_per_million,sick_population=sick_population,locationtable5=locationtable5,populationtable5=populationtable5,median_agetable5=median_agetable5,total_casestable5=total_casestable5,total_deathstable5=total_deathstable5,total_deaths_per_milliontable5=total_deaths_per_milliontable5,case_fatality_ratio=case_fatality_ratio,modified=modified,caseFatalityWorld=caseFatalityWorld, total_tests_per_thousandtable1 = total_tests_per_thousandtable1, hospital_beds_per_thousandstable1 = hospital_beds_per_thousandstable1)
 
 @app.route('/about')
 def about():

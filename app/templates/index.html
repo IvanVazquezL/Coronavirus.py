@@ -224,7 +224,6 @@ Countries with most cases per million
                   <h6>It has <b>the highest CFR in the world</b> with a {{case_fatality_ratio[0]}}%. In the next <a href="https://www.undp.org/content/undp/en/home/blog/2020/covid-19-ravages-an-already-desperate-yemen.html">link</a>
                     you can read the testimony of <b>Auke Lootsma</b> , the Representative of Yemen at the United Nations Development Programme.
                   </h6>
-
 <br>
 
                   <h6>"After nearly six years of war, 80 percent of Yemen’s 30 million population—more than 24 million people—depend on humanitarian assistance to survive. Millions are severely malnourished and weakened by diseases such as dengue, malaria, and cholera. They suffer from pre-existing conditions and are uniquely vulnerable to the worst and deadliest impact of COVID-19.
@@ -567,7 +566,7 @@ options: {
                                var listMaleSmokers = [];
                                var listFemaleSmokers = [];
                                var listOlder = [];
-
+                               // populationtable3, extreme_poverty_table3, gdp_per_capita_table3
                                {% for item in diabetes_prevalence_table3 %}
                                   listDiabetes.push("{{ item }}");
                                {% endfor %}
@@ -587,42 +586,6 @@ options: {
                                {% for item in cardiovasc_death_rate_table3 %}
                                   listCardiovascular.push("{{ item }}");
                                {% endfor %}
-
-                               {% for item in populationtable3 %}
-                                  list.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in gdp_per_capita_table3 %}
-                                  listCases.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in extreme_poverty_table3 %}
-                                  listPerMillion.push("{{ item }}");
-                               {% endfor %}
-
-                               list.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            list[index]= element;
-                                         }
-                               });
-
-                               listCases.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listCases[index]= element;
-                                         }
-                               });
-
-                               listPerMillion.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listPerMillion[index]= element;
-                                         }
-                               });
 
                                listDiabetes.forEach(function(element, index, array){
                                  if(parseInt(element) >= 1000){
@@ -664,7 +627,7 @@ options: {
                                          }
                                });
 
-                                return ['Population: '+list[tooltipItem.index],"GDP per capita: "+listCases[tooltipItem.index],"Extreme Poverty: "+listPerMillion[tooltipItem.index],"Diabetes Prevalence: "+listDiabetes[tooltipItem.index],"Cardiovascular Death Rate: "+listCardiovascular[tooltipItem.index],"Male smokers: "+listMaleSmokers[tooltipItem.index],"Female smokers: "+listFemaleSmokers[tooltipItem.index],"Population older than 65: "+listOlder[tooltipItem.index]];
+                                return ["Diabetes Prevalence: "+listDiabetes[tooltipItem.index] + '%',"Cardiovascular Death Rate: "+listCardiovascular[tooltipItem.index],"Male smokers: "+listMaleSmokers[tooltipItem.index] + '%',"Female smokers: "+listFemaleSmokers[tooltipItem.index] + '%',"Population older than 65: "+listOlder[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
