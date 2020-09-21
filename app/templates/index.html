@@ -18,11 +18,19 @@
         color: DarkBlue;
     }
 
+    .boxes{
+      background-color:white;
+      border-radius: 25px;
+      padding:30px
+    }
+
 
 
 </style>
 </head>
- <body>
+ <body >
+
+
 
           <!-- <div class="" style="background-color:rgba(151,187,205,0.2);font-family: 'Roboto Mono', monospace;"> -->
           <div class="" style="background-color:rgba(151,187,205,0.2);font-family: 'Kumbh Sans', sans-serif;">
@@ -31,7 +39,7 @@
               <a href="about">About us</a>
             </div>
 
-            <div class="container pt-5 pb-5 mb-5">
+            <div class="container pt-5 pb-5">
               <h1 >Coronavirus.py</h1>
               <hr>
               <hr>
@@ -86,20 +94,26 @@ Countries with most cases per million
             </div>
           </div>
 
-          <div class="container text-center">
+<div class="" style="background-color:#F5F6F9;">
+
+
+          <div class="container text-center" >
             <!-- Start Top 10 coronavirus chart -->
-            <h3 id = "graph1" class="mt-5 mb-5">Countries that have been infected the most:</h3>
-            <div class="d-flex justify-content-between">
+            <div class="text-left">
+              <h3 id = "graph1" class="pt-5 mb-3">Countries that have been infected the most</h3>
+            </div>
+
+            <div class="d-flex justify-content-between" style="background-color:white;border-radius: 25px;padding:30px">
               <div style="width:600; height:400">
                 <canvas id="chartTop10Cases"></canvas>
               </div>
               <div class="ml-5 text-justify" style="width:600; height:400;">
                   <h6>COVID-19 has been declared a pandemic by the WHO <b>(World Health Organization)</b> since <b>March 11 of 2020</b>.
-                    Obviously, larger countries tend to have higher numbers both of cases and of deaths. But there are
-                    many factors in play: population, countries with ageing population may hit harder because COVID-19 is
+                    Obviously, larger countries tend to have higher numbers both of cases and of deaths. However, there are
+                    many factors involved: population, countries with ageing population may hit harder because COVID-19 is
                     more dangerous to older population. </h6>
                   <br>
-                  <h6>In the <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020">following link</a> you’ll find the words from <b>Dr. Tedros Adhanom Ghebreyesus</b> which is the
+                  <h6>In the <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020">following link</a> you’ll find the words from <b>Dr. Tedros Adhanom Ghebreyesus,</b>
                     <b>Director General of the World Health Organization.</b> In this letter he writes the following:</h6>
                   <br>
                   <h6><i>"WHO has been assessing this outbreak around the clock and we are deeply concerned both by the alarming
@@ -113,12 +127,15 @@ Countries with most cases per million
             <!-- End Top 10 coronavirus chart -->
 
             <!-- Start Top 10 Deaths Coronavirus chart -->
-            <h3 id = "graph2" class="mt-5 mb-5">Countries with the highest number of deceased:</h3>
-            <div class="d-flex justify-content-between">
+            <div class="text-left">
+              <h3 id = "graph2" class="mt-5 mb-3">Countries with the highest number of deceased</h3>
+            </div>
+
+            <div class="boxes d-flex justify-content-between">
               <div style="width:600; height:400">
                 <canvas id="chartTop10Deaths"></canvas>
               </div>
-              <div class="ml-5 text-justify" style="width:600; height:400;">
+              <div class="ml-5 pt-5 text-justify" style="width:600; height:400;">
                   <h6>According to Our World in Data, the actual total death toll from COVID-19 is <b>likely to be
                     higher than the number of confirmed deaths</b> this is due to limited testing and problems in the
                     attribution of the cause of death.  </h6>
@@ -132,8 +149,10 @@ Countries with most cases per million
             <!-- End Top 10 Deaths Coronavirus chart -->
 
             <!-- Start Top 7 Best Responses chart -->
-            <h3 id = "graph3" class="mt-5 mb-5">Best Global Responses to COVID-19:</h3>
-            <div class="d-flex justify-content-between">
+            <div class="text-left">
+              <h3 id = "graph3" class="mt-5 mb-3">Best Global Responses to COVID-19</h3>
+            </div>
+            <div class="boxes d-flex justify-content-between">
               <div style="width:600; height:400">
                 <canvas id="chartTop7Responses"></canvas>
               </div>
@@ -159,12 +178,14 @@ Countries with most cases per million
             <!-- End Top 7 Best Responses chart -->
 
             <!-- Start Top 10 Cases per Million chart -->
-            <h3 id = "graph4" class="mt-5 mb-5">Cases per Million People:</h3>
-            <div class="d-flex justify-content-between">
+            <div class="text-left">
+              <h3 id = "graph4" class="mt-5 mb-3">Cases per Million People</h3>
+            </div>
+            <div class="boxes d-flex justify-content-between">
               <div style="width:600; height:400">
                 <canvas id="chartTotalCasesPerMillion"></canvas>
               </div>
-              <div class="ml-5 text-justify" style="width:600; height:400;">
+              <div class="ml-5 pt-4 text-justify" style="width:600; height:400;">
                   <h6>A meaningful way to compare one country to another, is by putting a base number to make a fair comparison.
                     In this graph, we are comparing one million infected people from country A against country B. </h6>
                   <br>
@@ -185,12 +206,15 @@ Countries with most cases per million
             <!-- End Top 10 Cases per Million chart -->
 
             <!-- Start Sick Population Percentage chart -->
-            <h3 id = "graph5" class="mt-5 mb-5">Percentage of population that got COVID-19:</h3>
-            <div class="d-flex justify-content-between">
+            <div class="text-left">
+              <h3 id = "graph5" class="mt-5 mb-3">Percentage of population that got COVID-19</h3>
+
+            </div>
+            <div class="boxes d-flex justify-content-between">
               <div style="width:600; height:400">
                 <canvas id="chartSickPopulationPercentage"></canvas>
               </div>
-              <div class="mt-5 ml-5 text-justify" style="width:600; height:400;">
+              <div class="ml-5 text-justify" style="width:600; height:400;">
                   <h6>The cases of COVID-19 vary drastically around the world. According to <a href="https://www.newscientist.com/article/mg24632873-000-how-many-of-us-are-likely-to-have-caught-the-coronavirus-so-far/">New Scientist</a>
                     the London School of and Tropical Medicine estimates <b>that only 35 per cent of symptomatic cases have been reported in
                     the US, and the number is even lower for some other countries.</b>
@@ -210,19 +234,22 @@ Countries with most cases per million
             <!-- End Sick Population Percentage chart -->
 
             <!-- Start Fatality Case Ratio chart -->
-            <h3 id = "graph6" class="mt-5 mb-5">Countries with the highest Case Fatality Rate:</h3>
-            <div class="d-flex justify-content-between">
+            <div class="text-left">
+              <h3 id = "graph6" class="mt-5 mb-3">Countries with the highest Case Fatality Rate</h3>
+
+            </div>
+            <div class="boxes d-flex justify-content-between">
               <div style="width:600; height:400">
                 <canvas id="chartFatalityCaseRatio"></canvas>
               </div>
-              <div class="mt-5 ml-5 text-justify" style="width:600; height:400;">
+              <div class="pt-4 ml-5 text-justify" style="width:600; height:400;">
                   <h6>The <b>Case Fatality Rate(CFR)</b> is the number of confirmed deaths divided by
                     the number of confirmed cases. The <b>worldwide CFR</b> is {{caseFatalityWorld}}%,
                     but Yemen separates from the rest of the other countries by a large margin.
                   </h6>
                   <br>
                   <h6>It has <b>the highest CFR in the world</b> with a {{case_fatality_ratio[0]}}%. In the next <a href="https://www.undp.org/content/undp/en/home/blog/2020/covid-19-ravages-an-already-desperate-yemen.html">link</a>
-                    you can read the testimony of <b>Auke Lootsma</b> , the Representative of Yemen at the United Nations Development Programme.
+                    you can read the testimony of <b>Auke Lootsma</b>, the Representative of Yemen at the United Nations Development Programme.
                   </h6>
 <br>
 
@@ -945,6 +972,7 @@ options: {
 // End Fatality Case Ratio chart
     </script>
         </div>
+
         <footer class="mt-5" style="height:200;background-color:rgba(151,187,205,0.2);">
 
         </footer>
@@ -952,5 +980,6 @@ options: {
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
     </body>
 </html>
