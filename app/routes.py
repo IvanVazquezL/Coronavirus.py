@@ -154,6 +154,7 @@ print(locationtable3,total_cases_per_milliontable3,diabetes_prevalence_table3,ca
 
 #table4
 #this table will display the sick population in %
+#de aquí borré total_casestable4 y total_tests_per_thousandtable4
 
 table4 = data.groupby(['iso_code','location','population','median_age','total_cases','total_tests_per_thousand','new_cases_per_million']).size().reset_index().groupby('iso_code').max()
 table4 = table4.round(decimals=2)
@@ -164,13 +165,11 @@ table4top10 = table4.head(n=10)
 locationtable4 = table4top10['location'].values.tolist()
 populationtable4 = table4top10['population'].values.astype(int).tolist()
 median_agetable4 = table4top10['median_age'].values.tolist()
-total_casestable4 = table4top10['total_cases'].values.astype(int).tolist()
-total_tests_per_thousandtable4 = table4top10['total_tests_per_thousand'].values.tolist()
 new_cases_per_million = table4top10['new_cases_per_million'].values.tolist()
 sick_population = table4top10['sick_population'].values.tolist()
 
 print('TABLE4:')
-print(locationtable4,populationtable4,median_agetable4,total_casestable4,total_tests_per_thousandtable4,new_cases_per_million,sick_population)
+print(locationtable4,populationtable4,median_agetable4,new_cases_per_million,sick_population)
 
 #table5
 #this table will display the Fatality case ratio per country
@@ -201,7 +200,7 @@ print(locationtable5, populationtable5, median_agetable5, total_casestable5, tot
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2,locationtable3=locationtable3,total_cases_per_milliontable3=total_cases_per_milliontable3,diabetes_prevalence_table3=diabetes_prevalence_table3,cardiovasc_death_rate_table3=cardiovasc_death_rate_table3,male_smokers_table3=male_smokers_table3,female_smokers_table3=female_smokers_table3,aged_65_older_table3=aged_65_older_table3,locationtable4=locationtable4,populationtable4=populationtable4,median_agetable4=median_agetable4,total_casestable4=total_casestable4,total_tests_per_thousandtable4=total_tests_per_thousandtable4,new_cases_per_million=new_cases_per_million,sick_population=sick_population,locationtable5=locationtable5,populationtable5=populationtable5,median_agetable5=median_agetable5,total_casestable5=total_casestable5,total_deathstable5=total_deathstable5,total_deaths_per_milliontable5=total_deaths_per_milliontable5,case_fatality_ratio=case_fatality_ratio,modified=modified,caseFatalityWorld=caseFatalityWorld, total_tests_per_thousandtable1 = total_tests_per_thousandtable1, hospital_beds_per_thousandstable1 = hospital_beds_per_thousandstable1)
+    return render_template('index.html',max = max,countries=countries,values=values,worldValue=worldValue,valuesDeath=valuesDeath, locationtable1 = locationtable1, total_deathstable1 = total_deathstable1,populationtable1=populationtable1,locationbc2t2=locationbc2t2,total_casesbc2t2=total_casesbc2t2,total_deathsbc2t2=total_deathsbc2t2,total_deaths_per_millionbc2t2=total_deaths_per_millionbc2t2,total_tests_per_thousandbc2t2=total_tests_per_thousandbc2t2,locationtable3=locationtable3,total_cases_per_milliontable3=total_cases_per_milliontable3,diabetes_prevalence_table3=diabetes_prevalence_table3,cardiovasc_death_rate_table3=cardiovasc_death_rate_table3,male_smokers_table3=male_smokers_table3,female_smokers_table3=female_smokers_table3,aged_65_older_table3=aged_65_older_table3,locationtable4=locationtable4,populationtable4=populationtable4,median_agetable4=median_agetable4,new_cases_per_million=new_cases_per_million,sick_population=sick_population,locationtable5=locationtable5,populationtable5=populationtable5,median_agetable5=median_agetable5,total_casestable5=total_casestable5,total_deathstable5=total_deathstable5,total_deaths_per_milliontable5=total_deaths_per_milliontable5,case_fatality_ratio=case_fatality_ratio,modified=modified,caseFatalityWorld=caseFatalityWorld, total_tests_per_thousandtable1 = total_tests_per_thousandtable1, hospital_beds_per_thousandstable1 = hospital_beds_per_thousandstable1)
 
 @app.route('/about')
 def about():

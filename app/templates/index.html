@@ -742,8 +742,6 @@ options: {
                              afterLabel: function(tooltipItem, data) {
                                var list = [];
                                var listCases = [];
-                               var listPerMillion = [];
-                               var listDiabetes = [];
                                var listCardiovascular = [];
                                var listMaleSmokers = [];
                                var listFemaleSmokers = [];
@@ -757,20 +755,9 @@ options: {
                                   listCases.push("{{ item }}");
                                {% endfor %}
 
-                               {% for item in total_casestable4 %}
-                                  listPerMillion.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_tests_per_thousandtable4 %}
-                                  listDiabetes.push("{{ item }}");
-                               {% endfor %}
-
                                {% for item in new_cases_per_million %}
                                   listMaleSmokers.push("{{ item }}");
                                {% endfor %}
-
-
-
 
 
                                list.forEach(function(element, index, array){
@@ -789,22 +776,6 @@ options: {
                                          }
                                });
 
-                               listPerMillion.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listPerMillion[index]= element;
-                                         }
-                               });
-
-                               listDiabetes.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listDiabetes[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listDiabetes[index]= element;
-                                         }
-                               });
-
 
 
                                listMaleSmokers.forEach(function(element, index, array){
@@ -817,7 +788,7 @@ options: {
 
 
 
-                                return ["Total Cases: "+listPerMillion[tooltipItem.index],'Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
+                                return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
                               }
                        } // end callbacks:
                      }, //end tooltips
