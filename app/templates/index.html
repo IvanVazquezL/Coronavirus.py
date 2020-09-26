@@ -1,192 +1,277 @@
-<html>
-    <head>
-        <title>Coronavirus.py</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap" rel="stylesheet">
- <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
- <style>
- ul {
-   position: relative;
- list-style: none;
- margin-left: 0;
- padding-left: 1.2em;
-}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Coronavirus.py</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
 
-    li a{
-        color: DarkBlue;
+    /* Start Header */
+    header .navbar-brand {
+      padding-left: 8rem;
+      padding-top: 1rem;
+      font-size: 25px;
     }
 
-    .boxes{
+    header a {
+      color: white;
+    }
+
+    header {
+      background-color: #667fe1;
+      font-family: 'Kumbh Sans', sans-serif;
+      color: white;
+    }
+
+    header .about {
+      padding-right: 8rem;
+      padding-top: 0.8rem;
+    }
+
+    header a:hover {
+      color: white;
+    }
+
+    /* End Header */
+
+    /* Start Section 1 */
+    .section-1 {
+      font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    .section-1 a{
+      color: DarkBlue;
+    }
+
+    /* End Section 1 */
+    .section-2{
+      background-color:#F5F6F9 ;
+    }
+
+    /* Start Section 2 */
+    .section-2 .boxes{
       background-color:white;
       border-radius: 25px;
-      padding:30px
     }
 
+    .section-2 .sizeChart{
+      width:500px !important;
+      height:400px !important;
+    }
 
+    .section-2 canvas{
+    margin:auto;
+    }
+    /* End Section 2 */
 
-</style>
+  /* Start Footer */
+  footer{
+    background-color:#161D2D;
+    color:white;
+  }
+  /* End Footer */
+
+    @media only screen and (max-width: 768px) {
+      header .navbar-brand {
+        padding-left: 1rem;
+      }
+
+      header .about {
+        padding-right: 1rem;
+      }
+
+      .section-2 .sizeChart{
+        width:260px !important;
+        height:300px !important;
+        padding-left: 0;
+      }
+
+      .section-2 .chartsDiv{
+        position: relative;
+  margin: auto;
+  height: 80vh;
+  width: 80vw;
+      }
+
+      .section-2 .textChart{
+        padding-top: 1.5rem;
+      }
+
+    }
+  </style>
 </head>
- <body>
 
-
-
-          <!-- <div class="" style="background-color:rgba(151,187,205,0.2);font-family: 'Roboto Mono', monospace;"> -->
-          <div class="" style="background-color:#667fe1;font-family: 'Kumbh Sans', sans-serif;color:white">
-
-            <div class="float-right pr-5 mr-5" style="padding-top:20px">
-              <a href="about" style="color:white">About us</a>
-            </div>
-
-            <div class="container pt-3 pb-2">
-              <h3>Coronavirus.py</h3>
-            </div>
+<body>
+  <header>
+    <div class="container-fluid p-0">
+      <nav class="navbar navbar-expand-lg">
+        <h3 class="navbar-brand">Coronavirus.py</h3>
+        <div class="mr-auto"></div>
+        <h6 class="about"><a href="about">About us</a></h6>
+      </nav>
+    </div>
+  </header>
+  <section class="section-1">
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h3 class="text-center">How it all started</h3>
+          <div class="p-3 text-justify">
+            <p>The first cases of COVID-19 were first reported by officials of Wuhan, China, in December 2019. The disease appears to have originated from a Wuhan seafood market where wild animals are traded illegally. </p>
+            <p>What started as an epidemic, mainly restrited to China, has now become a global pandemic. The disease has been detected in more than 200 countries. We hope this website helps to understand the severity of this disease and the responses
+              of different countries towards COVID-19.</p>
           </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h3 class="pl-3">What can you find in this page?</h3>
+          <ul>
+       <li>
+         <h6>
+           <a href="#graph1">
+             Countries that have been infected the most
+           </a>
+         </h6>
+       </li>
+       <li>
+         <h6>
+           <a href="#graph2">
+             Countries with the highest number of deceased
+           </a>
+         </h6>
+       </li>
+       <li>
+         <h6>
+           <a href="#graph3">
+             Best Global Responses to COVID-19
+           </a>
+         </h6>
+       </li>
+       <li>
+         <h6>
+           <a href="#graph4">
+     Countries with most cases per million
+     </a>
+         </h6>
+       </li>
+       <li>
+         <h6>
+           <a href="#graph5">
+           Percentage of population that got COVID-19
+           </a>
+         </h6>
+       </li>
+       <li>
+         <h6>
+           <a href="#graph6">
+           Countries with the highest Case Fatality Rate
+           </a>
+         </h6>
+       </li>
+     </ul>
+     <p class="pl-3 pt-3">The following data is up to {{modified}}</p>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
 
-          <div class="container pt-5 pb-5" style="background-color:white;font-family: 'Kumbh Sans', sans-serif;">
+  </section>
+  <section class="section-2 pb-5">
+    <!-- Start Top 10 coronavirus chart -->
+    <div class="container">
+      <div class="row">
+        <h3 id = "graph1" class="pl-3 pt-5 mb-3">Countries that have been infected the most</h3>
+      </div>
+      <div class="boxes">
 
-<h3 class="text-center">How it all started</h3>
-<div class="d-flex justify-content-center">
 
-  <div class="w-50 p-3 text-justify">
-
-
-  <p>The first cases of COVID-19 were first reported by officials of Wuhan, China, in December 2019. The disease appears to have originated from a Wuhan seafood market where wild animals are traded illegally. </p>
-  <p>What started as an epidemic, mainly restricted to China, has now become a global pandemic. The disease has been detected in more than 200 countries. We hope this website helps to understand the severity of this disease and the responses of different countries towards COVID-19.</p>
-  </div>
-</div>
-
-            <div class="d-flex justify-content-center">
-            <div class="w-50 p-3">
-            <h3 >What can you find in this page?</h3>
-            <ul>
-              <li>
-                <h6>
-                  <a href="#graph1">
-                    Countries that have been infected the most
-                  </a>
-                </h6>
-              </li>
-              <li>
-                <h6>
-                  <a href="#graph2">
-                    Countries with the highest number of deceased
-                  </a>
-                </h6>
-              </li>
-              <li>
-                <h6>
-                  <a href="#graph3">
-                    Best Global Responses to COVID-19
-                  </a>
-                </h6>
-              </li>
-              <li>
-                <h6>
-                  <a href="#graph4">
-            Countries with most cases per million
-            </a>
-                </h6>
-              </li>
-              <li>
-                <h6>
-                  <a href="#graph5">
-                  Percentage of population that got COVID-19
-                  </a>
-                </h6>
-              </li>
-              <li>
-                <h6>
-                  <a href="#graph6">
-                  Countries with the highest Case Fatality Rate
-                  </a>
-                </h6>
-              </li>
-            </ul>
-            <br>
-
-            <p class="text-center">The following data is up to {{modified}}</p>
-            </div>
-            </div>
+      <div class="row p-4">
+        <div class="col-12 col-md-6 ">
+          <div class="chartsDiv">
+               <canvas class="sizeChart" id="chartTop10Cases"></canvas>
           </div>
+        </div>
+        <div class="textChart col-12 col-md-6 text-justify pr-4">
+          <h6>COVID-19 has been declared a pandemic by the WHO <b>(World Health Organization)</b> since <b>March 11 of 2020</b>.
+                   Obviously, larger countries tend to have higher numbers both of cases and of deaths. However, there are
+                   many factors involved: population, countries with ageing population may hit harder because COVID-19 is
+                   more dangerous to older population. </h6>
+                 <br>
+                 <h6>In the <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020">following link</a> you’ll find the words from <b>Dr. Tedros Adhanom Ghebreyesus,</b>
+                   <b>Director General of the World Health Organization.</b> In this letter he writes the following:</h6>
+                 <br>
+                 <h6><i>"WHO has been assessing this outbreak around the clock and we are deeply concerned both by the alarming
+                   levels of spread and severity, and by the <b>alarming levels of inaction</b>. We have therefore made the assessment
+                   that COVID-19 can be characterized as a pandemic. <br> <br> Pandemic is not a word to use lightly or carelessly.
+                   It is a word that, if misused, can cause unreasonable fear, or unjustified acceptance that the fight is over,
+                   leading to unnecessary suffering and death."<br>
+                   World Health Organization</i></h6>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- End Top 10 coronavirus chart -->
 
-<div class="" style="background-color:#F5F6F9;">
+    <!-- Start Top 10 Deaths Coronavirus chart -->
+    <div class="container">
+      <div class="row">
+        <h3 id = "graph2" class="pl-3 pt-5 mb-3">Countries with the highest number of deceased</h3>
+      </div>
+      <div class="boxes">
 
 
-          <div class="container text-center" >
-            <!-- Start Top 10 coronavirus chart -->
-            <div class="text-left">
-              <h3 id = "graph1" class="pt-5 mb-3">Countries that have been infected the most</h3>
-            </div>
+      <div class="row p-4">
+        <div class="col-12 col-md-6 ">
+          <div>
+               <canvas class="sizeChart" id="chartTop10Deaths"></canvas>
+          </div>
+        </div>
+        <div class="textChart col-12 col-md-6  text-justify pt-5 pr-4">
+          <h6>According to Our World in Data, the actual total death toll from COVID-19 is <b>likely to be
+                   higher than the number of confirmed deaths</b> this is due to limited testing and problems in the
+                   attribution of the cause of death.  </h6>
+                 <br>
+                 <h6>How COVID-19 deaths are recorded may differ between countries <b>(e.g. some countries may only count hospital deaths,
+                   whilst others have started to include deaths in homes</b>.</h6>
+                 <br>
+                 <h6>The widely available data on confirmed cases only become meaningful when it can be interpreted considering how much a country is testing.</h6>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- End Top 10 Deaths Coronavirus chart -->
 
-            <div class="d-flex justify-content-between" style="background-color:white;border-radius: 25px;padding:30px">
-              <div style="width:600; height:400">
-                <canvas id="chartTop10Cases"></canvas>
-              </div>
-              <div class="ml-5 text-justify" style="width:600; height:400;">
-                  <h6>COVID-19 has been declared a pandemic by the WHO <b>(World Health Organization)</b> since <b>March 11 of 2020</b>.
-                    Obviously, larger countries tend to have higher numbers both cases and deaths. However, there are
-                    many factors involved: population, countries with ageing population may hit harder because COVID-19 is
-                    more dangerous to older population.
-                  <br>
-                  <br>
-                  In the <a href="https://www.who.int/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020">following link</a> you’ll find the words from <b>Dr. Tedros Adhanom Ghebreyesus,</b>
-                    <b>Director General of the World Health Organization.</b> In this letter he writes the following:
-                  <br>
-                  <br>
-                  <i>"WHO has been assessing this outbreak around the clock and we are deeply concerned both by the alarming
-                    levels of spread and severity, and by the <b>alarming levels of inaction</b>. We have therefore made the assessment
-                    that COVID-19 can be characterized as a pandemic. <br> <br> Pandemic is not a word to use lightly or carelessly.
-                    It is a word that, if misused, can cause unreasonable fear, or unjustified acceptance that the fight is over,
-                    leading to unnecessary suffering and death."<br>
-                    World Health Organization</i></h6>
-              </div>
-            </div>
-            <!-- End Top 10 coronavirus chart -->
+    <!-- Start Top 7 Best Responses chart -->
+    <div class="container">
+      <div class="row">
+        <h3 id = "graph3" class="pl-3 pt-5 mb-3">Best Global Responses to COVID-19</h3>
+      </div>
+      <div class="boxes">
 
-            <!-- Start Top 10 Deaths Coronavirus chart -->
-            <div class="text-left">
-              <h3 id = "graph2" class="mt-5 mb-3">Countries with the highest number of deceased</h3>
-            </div>
 
-            <div class="boxes d-flex justify-content-between">
-              <div style="width:600; height:400">
-                <canvas id="chartTop10Deaths"></canvas>
-              </div>
-              <div class="ml-5 pt-5 text-justify" style="width:600; height:400;">
-                  <h6>According to Our World in Data, the actual total death toll from COVID-19 is <b>likely to be
-                    higher than the number of confirmed deaths</b> this is due to limited testing and problems in the
-                    attribution of the cause of death.
-                  <br>
-                  <br>
-                  How COVID-19 deaths are recorded may differ between countries <b>(e.g. some countries may only count hospital deaths,
-                    whilst others have started to include deaths in homes</b>.
-                  <br>
-                  <br>
-                  The widely available data on confirmed cases only become meaningful when it can be interpreted considering how much a country is testing.</h6>
-              </div>
-            </div>
-            <!-- End Top 10 Deaths Coronavirus chart -->
-
-            <!-- Start Top 7 Best Responses chart -->
-            <div class="text-left">
-              <h3 id = "graph3" class="mt-5 mb-3">Best Global Responses to COVID-19</h3>
-            </div>
-            <div class="boxes d-flex justify-content-between">
-              <div style="width:600; height:400">
-                <canvas id="chartTop7Responses"></canvas>
-              </div>
-              <div class="ml-5 text-justify" style="width:600; height:400;">
-                  <h6>These are the best countries that <b>best managed COVID-19</b> and they serve as an example to
+      <div class="row p-4">
+        <div class="col-12 col-md-6 ">
+          <div>
+               <canvas class="sizeChart" id="chartTop7Responses"></canvas>
+          </div>
+        </div>
+        <div class="textChart col-12 col-md-6 text-justify pr-4">
+          <h6>These are the best countries that <b>best managed COVID-19</b> and they serve as an example to
                     other countries. These countries had a better response in: healthcare management, political
-                    response, and financial policy response.
+                    response, and financial policy response.</h6>
                   <br>
+                  <h6>The case of <b>Taiwan</b> is remarkable, <a href="https://time.com/5851633/best-global-responses-covid-19/">the newspaper Times wrote</a> the following:</h6>
                   <br>
-                  The case of <b>Taiwan</b> is remarkable, <a href="https://time.com/5851633/best-global-responses-covid-19/">the newspaper Times wrote</a> the following:
-                  <br>
-                  <br>
-                  <i>“In the initial days of an outbreak, <b>the only thing as bad as being the epicenter of a global pandemic
+                  <h6><i>“In the initial days of an outbreak, <b>the only thing as bad as being the epicenter of a global pandemic
                     is being right next door to one…</b> especially one that has it out for you (politically speaking). Despite that,
                     the self-governing island has managed a truly admirable response in less-than-ideal circumstances.
                     <br>
@@ -196,29 +281,35 @@
                     <b>the government used contact tracing and mobile Sim-tracking</b> to identify and ensure those in
                     quarantine were actually abiding by the rules.”
                   </i></h6>
-              </div>
-            </div>
-            <!-- End Top 7 Best Responses chart -->
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- End Top 7 Best Responses chart -->
 
-            <!-- Start Top 10 Cases per Million chart -->
-            <div class="text-left">
-              <h3 id = "graph4" class="mt-5 mb-3">Cases per Million People</h3>
-            </div>
-            <div class="boxes d-flex justify-content-between">
-              <div style="width:600; height:400">
-                <canvas id="chartTotalCasesPerMillion"></canvas>
-              </div>
-              <div class="ml-5 pt-4 text-justify" style="width:600; height:400;">
-                  <h6>A meaningful way to compare one country to another, is by putting a base number to make a fair comparison.
-                    In this graph, we are comparing one million infected people from country A against country B.
+    <!-- Start Top 10 Cases per Million chart -->
+    <div class="container">
+      <div class="row">
+        <h3 id = "graph4" class="pl-3 pt-5 mb-3">Cases per Million People</h3>
+      </div>
+      <div class="boxes">
+
+
+      <div class="row p-4">
+        <div class="col-12 col-md-6">
+          <div>
+               <canvas class="sizeChart" id="chartTotalCasesPerMillion"></canvas>
+          </div>
+        </div>
+        <div class="textChart col-12 col-md-6 text-justify pt-4 pr-4">
+          <h6>A meaningful way to compare one country to another, is by putting a base number to make a fair comparison.
+                    In this graph, we are comparing one million infected people from country A against country B. </h6>
                   <br>
-                  <br>
-                  According to <a href="https://www.bbc.com/news/world-latin-america-52711458">BBC</a> <b>Latin America had seen more
+                  <h6>According to <a href="https://www.bbc.com/news/world-latin-america-52711458">BBC</a> <b>Latin America had seen more
                     than 8.3 million cases and more than 310,000 deaths</b>, as of 14 of September. <b>It’s currently the worst
-                    hit area of the world</b>, along with Asia.
+                    hit area of the world</b>, along with Asia. </h6>
                   <br>
-                  <br>
-                  Chile has one of Latin America’s highest rates of testing by doing
+                  <h6>Chile has one of Latin America’s highest rates of testing by doing
                     147 tests out of 1,000 people. While Colombia do 56 tests out of 1,000 people.
                     <br>
                     <br>
@@ -226,76 +317,161 @@
                     Without testing there is no data.</b> Therefore, the people that might be infected and doesn’t get tested
                     not only spreads the virus but bias the worldwide data.
                   </i></h6>
-              </div>
-            </div>
-            <!-- End Top 10 Cases per Million chart -->
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- End Top 10 Cases per Million chart -->
 
-            <!-- Start Sick Population Percentage chart -->
-            <div class="text-left">
-              <h3 id = "graph5" class="mt-5 mb-3">Percentage of population that got COVID-19</h3>
+<!-- Start Sick Population Percentage chart -->
+<div class="container">
+  <div class="row">
+    <h3 id = "graph5" class="pl-3 pt-5 mb-3">Percentage of population that got COVID-19</h3>
+  </div>
+  <div class="boxes">
 
-            </div>
-            <div class="boxes d-flex justify-content-between">
-              <div style="width:600; height:400">
-                <canvas id="chartSickPopulationPercentage"></canvas>
-              </div>
-              <div class="ml-5 text-justify" style="width:600; height:400;">
-                  <h6>The cases of COVID-19 vary drastically around the world. According to <a href="https://www.newscientist.com/article/mg24632873-000-how-many-of-us-are-likely-to-have-caught-the-coronavirus-so-far/">New Scientist</a>
-                    the London School of Tropical Medicine estimates <b>that only 35 per cent of symptomatic cases have been reported in
+
+  <div class="row p-4">
+    <div class="col-12 col-md-6">
+      <div>
+           <canvas class="sizeChart" id="chartSickPopulationPercentage"></canvas>
+      </div>
+    </div>
+    <div class="textChart col-12 col-md-6 text-justify pt-4 pr-4">
+      <h6>The cases of COVID-19 vary drastically around the world. According to <a href="https://www.newscientist.com/article/mg24632873-000-how-many-of-us-are-likely-to-have-caught-the-coronavirus-so-far/">New Scientist</a>
+                    the London School of and Tropical Medicine estimates <b>that only 35 per cent of symptomatic cases have been reported in
                     the US, and the number is even lower for some other countries.</b>
+                  </h6>
                   <br>
-                  <br>
-                  What these statistics don’t reflect is the number of <b>symptomless</b> cases,
-                    which some evidence suggests <b>can account for between a quarter and half of all coronavirus infections.</b>
+                  <h6>What these statistics don’t reflect is the number of <b>symptomless</b> cases,
+                    which some evidence suggests <b>can account for between a quarter and half of all coronavirus infections.</b> </h6>
                     <br>
-                    <br>
-                  In this graph we want to highlight what percentage of the total population is getting sick.
+                  <h6>In this graph we want to highlight what percentage of the total population is getting sick.
                     This number may be <b>higher</b> due that not a lot of countries are reporting the total number of cases,
                     this is because many reasons: symptomless cases, lack of COVID-19 tests, people disbelief of the virus,
-                    lack of healthcare attention, country reports only hospital deaths, among other reasons.
+                    lack of healthcare attention, country reports only hospital deaths, among other reasons. </h6>
                     <br>
-                    <br>
-                    However, by highlighting this number, the reader can have an estimation of the percentage of the people that is getting sick. </h6>
-              </div>
-            </div>
-            <!-- End Sick Population Percentage chart -->
+                    <h6>However, by highlighting this number, the reader can have an estimation of the percentage of the people that is getting sick. </h6>
+    </div>
+  </div>
+  </div>
+</div>
+<!-- End Sick Population Percentage chart -->
 
-            <!-- Start Fatality Case Ratio chart -->
-            <div class="text-left">
-              <h3 id = "graph6" class="mt-5 mb-3">Countries with the highest Case Fatality Rate</h3>
+ <!-- Start Fatality Case Ratio chart -->
+ <div class="container">
+   <div class="row">
+     <h3 id = "graph6" class="pl-3 pt-5 mb-3">Countries with the highest Case Fatality Rate</h3>
+   </div>
+   <div class="boxes">
 
-            </div>
-            <div class="boxes d-flex justify-content-between">
-              <div style="width:600; height:400">
-                <canvas id="chartFatalityCaseRatio"></canvas>
-              </div>
-              <div class="pt-4 ml-5 text-justify" style="width:600; height:400;">
-                  <h6>The <b>Case Fatality Rate(CFR)</b> is the number of confirmed deaths divided by
-                    the number of confirmed cases. The <b>worldwide CFR</b> is {{caseFatalityWorld}}%,
-                    but Yemen separates from the rest of the other countries by a large margin.
-                  <br>
-                  <br>
-                  It has <b>the highest CFR in the world</b> with a {{case_fatality_ratio[0]}}%. In the next <a href="https://www.undp.org/content/undp/en/home/blog/2020/covid-19-ravages-an-already-desperate-yemen.html">link</a>
-                    you can read the testimony of <b>Auke Lootsma</b>, the Representative of Yemen at the United Nations Development Programme.
-                  <br>
-                  <br>
-                  "After nearly six years of war, 80 percent of Yemen’s 30 million population—more than 24 million people—depend on humanitarian assistance to survive. Millions are severely malnourished and weakened by diseases such as dengue, malaria, and cholera. They suffer from pre-existing conditions and are uniquely vulnerable to the worst and deadliest impact of COVID-19.
+
+   <div class="row p-4">
+     <div class="col-12 col-md-6">
+       <div>
+            <canvas class="sizeChart" id="chartFatalityCaseRatio"></canvas>
+       </div>
+     </div>
+     <div class="textChart col-12 col-md-6 text-justify pt-4 pr-4">
+       <h6>The <b>Case Fatality Rate(CFR)</b> is the number of confirmed deaths divided by
+                   the number of confirmed cases. The <b>worldwide CFR</b> is {{caseFatalityWorld}}%,
+                   but Yemen separates from the rest of the other countries by a large margin.
+                 </h6>
+                 <br>
+                 <h6>It has <b>the highest CFR in the world</b> with a {{case_fatality_ratio[0]}}%. In the next <a href="https://www.undp.org/content/undp/en/home/blog/2020/covid-19-ravages-an-already-desperate-yemen.html">link</a>
+                   you can read the testimony of <b>Auke Lootsma</b>, the Representative of Yemen at the United Nations Development Programme.
+                 </h6>
+<br>
+
+                 <h6>"After nearly six years of war, 80 percent of Yemen’s 30 million population—more than 24 million people—depend on humanitarian assistance to survive. Millions are severely malnourished and weakened by diseases such as dengue, malaria, and cholera. They suffer from pre-existing conditions and are uniquely vulnerable to the worst and deadliest impact of COVID-19.
 
 Yemen is already the world’s worst humanitarian and development crisis."</h6>
+     </div>
+   </div>
+   </div>
+ </div>
+  <!-- End Fatality Case Ratio chart -->
+  </section>
+<footer class="pb-4" >
+  <div class="text-center pt-5">
+    <h3>Soon we will hug each other again</h3>
+    <p>This website is brought to you by David & Ivan</p>
+  </div>
+</footer>
+        <script>
+        // Start Top 10 coronavirus chart
+        var ctx = document.getElementById('chartTop10Cases').getContext("2d");
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+              {% for item in countries %}
+                  "{{ item }}",
+                   {% endfor %}
+            ],
+            datasets : [{
+                 fillColor: "rgba(151,187,205,1)",
+                 strokeColor: "rgba(151,187,205,1)",
+                 pointColor: "rgba(151,187,205,1)",
+                 backgroundColor: "rgba(151,187,205,0.2)",
+                 borderColor:"rgba(151,187,205,1)",
+                 borderWidth:2,
+                 label: "Total number of COVID-19 cases",
+                 data : [
+                           {% for item in values %}
+                              "{{ item }}",
+                           {% endfor %}
+                        ]
+                      }
 
-              </div>
-            </div>
-            <!-- End Fatality Case Ratio chart -->
+
+                        ],
+        },
+        options: {
+                                 responsive: true,
+                                 maintainAspectRatio: false,
+
+                             tooltips: {
+                               callbacks: {
+                                     label: function(tooltipItem, data) {
+
+                                         var value = data.datasets[0].data[tooltipItem.index];
+                                         if(parseInt(value) >= 1000){
+                                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                 } else {
+                                                    return value;
+                                                 }
+                                     }
+                               } // end callbacks:
+                             }, //end tooltips
+            scales: {
+                                         yAxes: [{
+                                             ticks: {
+                                                 beginAtZero:true,
+                                                 callback: function(value, index, values) {
+                                                     if(parseInt(value) >= 1000){
+                                                        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                     } else {
+                                                        return value;
+                                                     }
+                                                }
+                                             }
+                                         }]
+            }
 
 
-    <script>
-    // Start Top 10 coronavirus chart
-    var ctx = document.getElementById('chartTop10Cases').getContext("2d");
-    var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
+          }
+
+      });
+      //End Top 10 Coronavirus cases chart
+
+      //Top 10 Deaths Chart
+      var ctx = document.getElementById('chartTop10Deaths').getContext("2d");
+      var myChart1 = new Chart(ctx, {
+      type: 'bar',
+      data: {
         labels: [
-          {% for item in countries %}
+          {% for item in locationtable1 %}
               "{{ item }}",
                {% endfor %}
         ],
@@ -306,9 +482,9 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
              backgroundColor: "rgba(151,187,205,0.2)",
              borderColor:"rgba(151,187,205,1)",
              borderWidth:2,
-             label: "Total number of COVID-19 cases",
+             label: "Total number of COVID-19 deaths",
              data : [
-                       {% for item in values %}
+                       {% for item in total_deathstable1 %}
                           "{{ item }}",
                        {% endfor %}
                     ]
@@ -316,8 +492,8 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
 
 
                     ],
-    },
-    options: {
+      },
+      options: {
                              responsive: true,
                              maintainAspectRatio: false,
 
@@ -327,11 +503,48 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
 
                                      var value = data.datasets[0].data[tooltipItem.index];
                                      if(parseInt(value) >= 1000){
-                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                return "Deaths: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                              } else {
-                                                return value;
+                                                return "Deaths: "+value;
                                              }
-                                 }
+                                 },
+                                 afterLabel: function(tooltipItem, data) {
+                                   var list = [];
+                                   var listCases = []
+                                   var listhospital_beds = []
+
+                                   {% for item in populationtable1 %}
+                                      list.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in total_tests_per_thousandtable1 %}
+                                      listCases.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in hospital_beds_per_thousandstable1 %}
+                                      listhospital_beds.push("{{ item }}");
+                                   {% endfor %}
+
+                                   list.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                list[index]= element;
+                                             }
+                                   });
+
+                                   listCases.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listCases[index]= element;
+                                             }
+                                   });
+      console.log(tooltipItem);
+      console.log({{populationtable1[0]}});
+      console.log(list[0])
+                                    return ['Population: '+list[tooltipItem.index],"Total tests per thousands: "+listCases[tooltipItem.index],"Hospital Beds per Thousands: " + listhospital_beds[tooltipItem.index]];
+                                  }
                            } // end callbacks:
                          }, //end tooltips
         scales: {
@@ -352,661 +565,548 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
 
       }
 
-});
-//End Top 10 Coronavirus cases chart
+      });
+      //End Top 10 coronavirus Deaths chart
 
-//Top 10 Deaths Chart
-var ctx = document.getElementById('chartTop10Deaths').getContext("2d");
-var myChart1 = new Chart(ctx, {
-type: 'bar',
-data: {
-    labels: [
-      {% for item in locationtable1 %}
-          "{{ item }}",
-           {% endfor %}
-    ],
-    datasets : [{
-         fillColor: "rgba(151,187,205,1)",
-         strokeColor: "rgba(151,187,205,1)",
-         pointColor: "rgba(151,187,205,1)",
-         backgroundColor: "rgba(151,187,205,0.2)",
-         borderColor:"rgba(151,187,205,1)",
-         borderWidth:2,
-         label: "Total number of COVID-19 deaths",
-         data : [
-                   {% for item in total_deathstable1 %}
-                      "{{ item }}",
-                   {% endfor %}
-                ]
-              }
+      //Start Top 7 Best Responses Chart
+      var ctx = document.getElementById('chartTop7Responses').getContext("2d");
+      var myChart2 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          {% for item in locationbc2t2 %}
+              "{{ item }}",
+               {% endfor %}
+        ],
+        datasets : [{
+             fillColor: "rgba(151,187,205,1)",
+             strokeColor: "rgba(151,187,205,1)",
+             pointColor: "rgba(151,187,205,1)",
+             backgroundColor: "rgba(151,187,205,0.2)",
+             borderColor:"rgba(151,187,205,1)",
+             borderWidth:2,
+             label: "Total number of COVID-19 cases",
+             data : [
+                       {% for item in total_casesbc2t2 %}
+                          "{{ item }}",
+                       {% endfor %}
+                    ]
+                  }
 
 
-                ],
-},
-options: {
-                         responsive: true,
-                         maintainAspectRatio: false,
+                    ],
+      },
+      options: {
+                             responsive: true,
+                             maintainAspectRatio: false,
 
-                     tooltips: {
-                       callbacks: {
-                             label: function(tooltipItem, data) {
+                         tooltips: {
+                           callbacks: {
+                                 label: function(tooltipItem, data) {
 
-                                 var value = data.datasets[0].data[tooltipItem.index];
-                                 if(parseInt(value) >= 1000){
-                                            return "Deaths: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            return "Deaths: "+value;
-                                         }
-                             },
-                             afterLabel: function(tooltipItem, data) {
-                               var list = [];
-                               var listCases = []
-                               var listhospital_beds = []
-
-                               {% for item in populationtable1 %}
-                                  list.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_tests_per_thousandtable1 %}
-                                  listCases.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in hospital_beds_per_thousandstable1 %}
-                                  listhospital_beds.push("{{ item }}");
-                               {% endfor %}
-
-                               list.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            list[index]= element;
-                                         }
-                               });
-
-                               listCases.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listCases[index]= element;
-                                         }
-                               });
-console.log(tooltipItem);
-console.log({{populationtable1[0]}});
-console.log(list[0])
-                                return ['Population: '+list[tooltipItem.index],"Total tests per thousands: "+listCases[tooltipItem.index],"Hospital Beds per Thousands: " + listhospital_beds[tooltipItem.index]];
-                              }
-                       } // end callbacks:
-                     }, //end tooltips
-    scales: {
-                                 yAxes: [{
-                                     ticks: {
-                                         beginAtZero:true,
-                                         callback: function(value, index, values) {
-                                             if(parseInt(value) >= 1000){
-                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                     var value = data.datasets[0].data[tooltipItem.index];
+                                     if(parseInt(value) >= 1000){
+                                                return "Total Cases: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                              } else {
-                                                return value;
+                                                return "Total Cases: "+value;
                                              }
-                                        }
-                                     }
-                                 }]
-    }
+                                 },
+                                 afterLabel: function(tooltipItem, data) {
+                                   var list = [];
+                                   var listCases = [];
+                                   var listPerMillion = []
 
+                                   {% for item in total_deathsbc2t2 %}
+                                      list.push("{{ item }}");
+                                   {% endfor %}
 
-  }
+                                   {% for item in total_tests_per_thousandbc2t2 %}
+                                      listCases.push("{{ item }}");
+                                   {% endfor %}
 
-});
-//End Top 10 coronavirus Deaths chart
+                                   {% for item in total_deaths_per_millionbc2t2 %}
+                                      listPerMillion.push("{{ item }}");
+                                   {% endfor %}
 
-//Start Top 7 Best Responses Chart
-var ctx = document.getElementById('chartTop7Responses').getContext("2d");
-var myChart2 = new Chart(ctx, {
-type: 'bar',
-data: {
-    labels: [
-      {% for item in locationbc2t2 %}
-          "{{ item }}",
-           {% endfor %}
-    ],
-    datasets : [{
-         fillColor: "rgba(151,187,205,1)",
-         strokeColor: "rgba(151,187,205,1)",
-         pointColor: "rgba(151,187,205,1)",
-         backgroundColor: "rgba(151,187,205,0.2)",
-         borderColor:"rgba(151,187,205,1)",
-         borderWidth:2,
-         label: "Total number of COVID-19 cases",
-         data : [
-                   {% for item in total_casesbc2t2 %}
-                      "{{ item }}",
-                   {% endfor %}
-                ]
-              }
-
-
-                ],
-},
-options: {
-                         responsive: true,
-                         maintainAspectRatio: false,
-
-                     tooltips: {
-                       callbacks: {
-                             label: function(tooltipItem, data) {
-
-                                 var value = data.datasets[0].data[tooltipItem.index];
-                                 if(parseInt(value) >= 1000){
-                                            return "Total Cases: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            return "Total Cases: "+value;
-                                         }
-                             },
-                             afterLabel: function(tooltipItem, data) {
-                               var list = [];
-                               var listCases = [];
-                               var listPerMillion = []
-
-                               {% for item in total_deathsbc2t2 %}
-                                  list.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_tests_per_thousandbc2t2 %}
-                                  listCases.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_deaths_per_millionbc2t2 %}
-                                  listPerMillion.push("{{ item }}");
-                               {% endfor %}
-
-                               list.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            list[index]= element;
-                                         }
-                               });
-
-                               listCases.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listCases[index]= element;
-                                         }
-                               });
-
-                               listPerMillion.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listPerMillion[index]= element;
-                                         }
-                               });
-
-                                return ['Total Deaths: '+list[tooltipItem.index],"Total Tests per Thousand: "+listCases[tooltipItem.index],"Total Deaths per Million: "+listPerMillion[tooltipItem.index]];
-                              }
-                       } // end callbacks:
-                     }, //end tooltips
-    scales: {
-                                 yAxes: [{
-                                     ticks: {
-                                         beginAtZero:true,
-                                         callback: function(value, index, values) {
-                                             if(parseInt(value) >= 1000){
-                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                   list.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                              } else {
-                                                return value;
+                                                list[index]= element;
                                              }
-                                        }
-                                     }
-                                 }]
-    }
+                                   });
 
-
-  }
-
-});
-//End Top 7 Best Responses Chart
-
-// Start Top 10 Cases per Million chart
-var ctx = document.getElementById('chartTotalCasesPerMillion').getContext("2d");
-var myChart3 = new Chart(ctx, {
-type: 'bar',
-data: {
-    labels: [
-      {% for item in locationtable3 %}
-          "{{ item }}",
-           {% endfor %}
-    ],
-    datasets : [{
-         fillColor: "rgba(151,187,205,1)",
-         strokeColor: "rgba(151,187,205,1)",
-         pointColor: "rgba(151,187,205,1)",
-         backgroundColor: "rgba(151,187,205,0.2)",
-         borderColor:"rgba(151,187,205,1)",
-         borderWidth:2,
-         label: "Cases per Million",
-         data : [
-                   {% for item in total_cases_per_milliontable3 %}
-                      "{{ item }}",
-                   {% endfor %}
-                ]
-              }
-
-
-                ],
-},
-options: {
-                         responsive: true,
-                         maintainAspectRatio: false,
-
-                     tooltips: {
-                       callbacks: {
-                             label: function(tooltipItem, data) {
-
-                                 var value = data.datasets[0].data[tooltipItem.index];
-                                 if(parseInt(value) >= 1000){
-                                            return "Cases per Million: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            return "Cases per Million: "+value;
-                                         }
-                             },
-                             afterLabel: function(tooltipItem, data) {
-                               var list = [];
-                               var listCases = [];
-                               var listPerMillion = [];
-                               var listDiabetes = [];
-                               var listCardiovascular = [];
-                               var listMaleSmokers = [];
-                               var listFemaleSmokers = [];
-                               var listOlder = [];
-                               // populationtable3, extreme_poverty_table3, gdp_per_capita_table3
-                               {% for item in diabetes_prevalence_table3 %}
-                                  listDiabetes.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in male_smokers_table3 %}
-                                  listMaleSmokers.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in female_smokers_table3 %}
-                                  listFemaleSmokers.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in aged_65_older_table3 %}
-                                  listOlder.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in cardiovasc_death_rate_table3 %}
-                                  listCardiovascular.push("{{ item }}");
-                               {% endfor %}
-
-                               listDiabetes.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listDiabetes[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listDiabetes[index]= element;
-                                         }
-                               });
-
-                               listCardiovascular.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listCardiovascular[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listCardiovascular[index]= element;
-                                         }
-                               });
-
-                               listMaleSmokers.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listMaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listMaleSmokers[index]= element;
-                                         }
-                               });
-
-                               listFemaleSmokers.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listFemaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listFemaleSmokers[index]= element;
-                                         }
-                               });
-
-                               listOlder.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listOlder[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listOlder[index]= element;
-                                         }
-                               });
-
-                                return ["Diabetes Prevalence: "+listDiabetes[tooltipItem.index] + '%',"Cardiovascular Death Rate: "+listCardiovascular[tooltipItem.index],"Male smokers: "+listMaleSmokers[tooltipItem.index] + '%',"Female smokers: "+listFemaleSmokers[tooltipItem.index] + '%',"Population older than 65: "+listOlder[tooltipItem.index]];
-                              }
-                       } // end callbacks:
-                     }, //end tooltips
-    scales: {
-                                 yAxes: [{
-                                     ticks: {
-                                         beginAtZero:true,
-                                         callback: function(value, index, values) {
-                                             if(parseInt(value) >= 1000){
-                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                   listCases.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                              } else {
-                                                return value;
+                                                listCases[index]= element;
                                              }
-                                        }
-                                     }
-                                 }]
-    }
+                                   });
 
-
-  }
-
-});
-// End Top 10 Cases per Million chart
-
-// Start Sick Population Percentage chart
-var ctx = document.getElementById('chartSickPopulationPercentage').getContext("2d");
-var myChart4 = new Chart(ctx, {
-type: 'bar',
-data: {
-    labels: [
-      {% for item in locationtable4 %}
-          "{{ item }}",
-           {% endfor %}
-    ],
-    datasets : [{
-         fillColor: "rgba(151,187,205,1)",
-         strokeColor: "rgba(151,187,205,1)",
-         pointColor: "rgba(151,187,205,1)",
-         backgroundColor: "rgba(151,187,205,0.2)",
-         borderColor:"rgba(151,187,205,1)",
-         borderWidth:2,
-         label: "Percentage of Population that got Covid",
-         data : [
-                   {% for item in sick_population %}
-                      "{{ item }}",
-                   {% endfor %}
-                ]
-              }
-
-
-                ],
-},
-options: {
-                         responsive: true,
-                         maintainAspectRatio: false,
-
-                     tooltips: {
-                       callbacks: {
-                             label: function(tooltipItem, data) {
-
-                                 var value = data.datasets[0].data[tooltipItem.index];
-                                 if(parseInt(value) >= 1000){
-                                            return "Percentage of Population that got Covid: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" %";
-                                         } else {
-                                            return "Percentage of Population that got Covid: "+value +" %";
-                                         }
-                             },
-                             afterLabel: function(tooltipItem, data) {
-                               var list = [];
-                               var listCases = [];
-                               var listPerMillion = [];
-                               var listDiabetes = [];
-                               var listCardiovascular = [];
-                               var listMaleSmokers = [];
-                               var listFemaleSmokers = [];
-                               var listOlder = [];
-
-                               {% for item in populationtable4 %}
-                                  list.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in median_agetable4 %}
-                                  listCases.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_casestable4 %}
-                                  listPerMillion.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_tests_per_thousandtable4 %}
-                                  listDiabetes.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in new_cases_per_million %}
-                                  listMaleSmokers.push("{{ item }}");
-                               {% endfor %}
-
-
-
-
-
-                               list.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            list[index]= element;
-                                         }
-                               });
-
-                               listCases.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listCases[index]= element;
-                                         }
-                               });
-
-                               listPerMillion.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listPerMillion[index]= element;
-                                         }
-                               });
-
-                               listDiabetes.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listDiabetes[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listDiabetes[index]= element;
-                                         }
-                               });
-
-
-
-                               listMaleSmokers.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listMaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listMaleSmokers[index]= element;
-                                         }
-                               });
-
-
-
-                                return ["Total Cases: "+listPerMillion[tooltipItem.index],'Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
-                              }
-                       } // end callbacks:
-                     }, //end tooltips
-    scales: {
-                                 yAxes: [{
-                                     ticks: {
-                                         beginAtZero:true,
-                                         callback: function(value, index, values) {
-                                             if(parseInt(value) >= 1000){
-                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                   listPerMillion.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                              } else {
-                                                return value;
+                                                listPerMillion[index]= element;
                                              }
-                                        }
-                                     }
-                                 }]
-    }
+                                   });
 
-
-  }
-
-});
-// End Sick Population Percentage chart
-
-// Start Fatality Case Ratio chart
-var ctx = document.getElementById('chartFatalityCaseRatio').getContext("2d");
-var myChart5 = new Chart(ctx, {
-type: 'bar',
-data: {
-    labels: [
-      {% for item in locationtable5 %}
-          "{{ item }}",
-           {% endfor %}
-    ],
-    datasets : [{
-         fillColor: "rgba(151,187,205,1)",
-         strokeColor: "rgba(151,187,205,1)",
-         pointColor: "rgba(151,187,205,1)",
-         backgroundColor: "rgba(151,187,205,0.2)",
-         borderColor:"rgba(151,187,205,1)",
-         borderWidth:2,
-         label: "Case Fatality Rate",
-         data : [
-                   {% for item in case_fatality_ratio %}
-                      "{{ item }}",
-                   {% endfor %}
-                ]
-              }
-
-
-                ],
-},
-options: {
-                         responsive: true,
-                         maintainAspectRatio: false,
-
-                     tooltips: {
-                       callbacks: {
-                             label: function(tooltipItem, data) {
-
-                                 var value = data.datasets[0].data[tooltipItem.index];
-                                 if(parseInt(value) >= 1000){
-                                            return "Case Fatality Rate: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"%";
-                                         } else {
-                                            return "Case Fatality Rate: "+value+"%";
+                                    return ['Total Deaths: '+list[tooltipItem.index],"Total Tests per Thousand: "+listCases[tooltipItem.index],"Total Deaths per Million: "+listPerMillion[tooltipItem.index]];
+                                  }
+                           } // end callbacks:
+                         }, //end tooltips
+        scales: {
+                                     yAxes: [{
+                                         ticks: {
+                                             beginAtZero:true,
+                                             callback: function(value, index, values) {
+                                                 if(parseInt(value) >= 1000){
+                                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                 } else {
+                                                    return value;
+                                                 }
+                                            }
                                          }
-                             },
-                             afterLabel: function(tooltipItem, data) {
-                               var list = [];
-                               var listCases = [];
-                               var listPerMillion = [];
-                               var listDiabetes = [];
-                               var listCardiovascular = [];
-                               var listMaleSmokers = [];
-                               var listFemaleSmokers = [];
-                               var listOlder = [];
-
-                               {% for item in populationtable5 %}
-                                  list.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in median_agetable5 %}
-                                  listCases.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_casestable5 %}
-                                  listPerMillion.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_deathstable5 %}
-                                  listDiabetes.push("{{ item }}");
-                               {% endfor %}
-
-                               {% for item in total_deaths_per_milliontable5 %}
-                                  listMaleSmokers.push("{{ item }}");
-                               {% endfor %}
+                                     }]
+        }
 
 
+      }
+
+      });
+      //End Top 7 Best Responses Chart
+
+      // Start Top 10 Cases per Million chart
+      var ctx = document.getElementById('chartTotalCasesPerMillion').getContext("2d");
+      var myChart3 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          {% for item in locationtable3 %}
+              "{{ item }}",
+               {% endfor %}
+        ],
+        datasets : [{
+             fillColor: "rgba(151,187,205,1)",
+             strokeColor: "rgba(151,187,205,1)",
+             pointColor: "rgba(151,187,205,1)",
+             backgroundColor: "rgba(151,187,205,0.2)",
+             borderColor:"rgba(151,187,205,1)",
+             borderWidth:2,
+             label: "Cases per Million",
+             data : [
+                       {% for item in total_cases_per_milliontable3 %}
+                          "{{ item }}",
+                       {% endfor %}
+                    ]
+                  }
 
 
+                    ],
+      },
+      options: {
+                             responsive: true,
+                             maintainAspectRatio: false,
 
-                               list.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            list[index]= element;
-                                         }
-                               });
+                         tooltips: {
+                           callbacks: {
+                                 label: function(tooltipItem, data) {
 
-                               listCases.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listCases[index]= element;
-                                         }
-                               });
-
-                               listPerMillion.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listPerMillion[index]= element;
-                                         }
-                               });
-
-                               listDiabetes.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listDiabetes[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listDiabetes[index]= element;
-                                         }
-                               });
-
-
-
-                               listMaleSmokers.forEach(function(element, index, array){
-                                 if(parseInt(element) >= 1000){
-                                            listMaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                         } else {
-                                            listMaleSmokers[index]= element;
-                                         }
-                               });
-
-
-                               // return ['Population: '+list[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Deaths per Million: "+listMaleSmokers[tooltipItem.index]];
-                                return ["Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index]];
-                              }
-                       } // end callbacks:
-                     }, //end tooltips
-    scales: {
-                                 yAxes: [{
-                                     ticks: {
-                                         beginAtZero:true,
-                                         callback: function(value, index, values) {
-                                             if(parseInt(value) >= 1000){
-                                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                     var value = data.datasets[0].data[tooltipItem.index];
+                                     if(parseInt(value) >= 1000){
+                                                return "Cases per Million: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                              } else {
-                                                return value;
+                                                return "Cases per Million: "+value;
                                              }
-                                        }
-                                     }
-                                 }]
-    }
+                                 },
+                                 afterLabel: function(tooltipItem, data) {
+                                   var list = [];
+                                   var listCases = [];
+                                   var listPerMillion = [];
+                                   var listDiabetes = [];
+                                   var listCardiovascular = [];
+                                   var listMaleSmokers = [];
+                                   var listFemaleSmokers = [];
+                                   var listOlder = [];
+                                   // populationtable3, extreme_poverty_table3, gdp_per_capita_table3
+                                   {% for item in diabetes_prevalence_table3 %}
+                                      listDiabetes.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in male_smokers_table3 %}
+                                      listMaleSmokers.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in female_smokers_table3 %}
+                                      listFemaleSmokers.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in aged_65_older_table3 %}
+                                      listOlder.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in cardiovasc_death_rate_table3 %}
+                                      listCardiovascular.push("{{ item }}");
+                                   {% endfor %}
+
+                                   listDiabetes.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listDiabetes[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listDiabetes[index]= element;
+                                             }
+                                   });
+
+                                   listCardiovascular.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listCardiovascular[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listCardiovascular[index]= element;
+                                             }
+                                   });
+
+                                   listMaleSmokers.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listMaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listMaleSmokers[index]= element;
+                                             }
+                                   });
+
+                                   listFemaleSmokers.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listFemaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listFemaleSmokers[index]= element;
+                                             }
+                                   });
+
+                                   listOlder.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listOlder[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listOlder[index]= element;
+                                             }
+                                   });
+
+                                    return ["Diabetes Prevalence: "+listDiabetes[tooltipItem.index] + '%',"Cardiovascular Death Rate: "+listCardiovascular[tooltipItem.index],"Male smokers: "+listMaleSmokers[tooltipItem.index] + '%',"Female smokers: "+listFemaleSmokers[tooltipItem.index] + '%',"Population older than 65: "+listOlder[tooltipItem.index]];
+                                  }
+                           } // end callbacks:
+                         }, //end tooltips
+        scales: {
+                                     yAxes: [{
+                                         ticks: {
+                                             beginAtZero:true,
+                                             callback: function(value, index, values) {
+                                                 if(parseInt(value) >= 1000){
+                                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                 } else {
+                                                    return value;
+                                                 }
+                                            }
+                                         }
+                                     }]
+        }
 
 
-  }
+      }
 
-});
-// End Fatality Case Ratio chart
-    </script>
-        </div>
+      });
+      // End Top 10 Cases per Million chart
 
-        <footer class="mt-5 pb-4" style="background-color:#161D2D;color:white;">
-          <div class="text-center pt-5">
-            <h3>Soon, we will hug each other again</h3>
-            <p>This website is brought to you by David & Ivan</p>
-          </div>
+      // Start Sick Population Percentage chart
+      var ctx = document.getElementById('chartSickPopulationPercentage').getContext("2d");
+      var myChart4 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          {% for item in locationtable4 %}
+              "{{ item }}",
+               {% endfor %}
+        ],
+        datasets : [{
+             fillColor: "rgba(151,187,205,1)",
+             strokeColor: "rgba(151,187,205,1)",
+             pointColor: "rgba(151,187,205,1)",
+             backgroundColor: "rgba(151,187,205,0.2)",
+             borderColor:"rgba(151,187,205,1)",
+             borderWidth:2,
+             label: "Percentage of Population that got Covid",
+             data : [
+                       {% for item in sick_population %}
+                          "{{ item }}",
+                       {% endfor %}
+                    ]
+                  }
 
-        </footer>
 
+                    ],
+      },
+      options: {
+                             responsive: true,
+                             maintainAspectRatio: false,
+
+                         tooltips: {
+                           callbacks: {
+                                 label: function(tooltipItem, data) {
+
+                                     var value = data.datasets[0].data[tooltipItem.index];
+                                     if(parseInt(value) >= 1000){
+                                                return "Percentage of Population that got Covid: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" %";
+                                             } else {
+                                                return "Percentage of Population that got Covid: "+value +" %";
+                                             }
+                                 },
+                                 afterLabel: function(tooltipItem, data) {
+                                   var list = [];
+                                   var listCases = [];
+                                   var listPerMillion = [];
+                                   var listDiabetes = [];
+                                   var listCardiovascular = [];
+                                   var listMaleSmokers = [];
+                                   var listFemaleSmokers = [];
+                                   var listOlder = [];
+
+                                   {% for item in populationtable4 %}
+                                      list.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in median_agetable4 %}
+                                      listCases.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in total_casestable4 %}
+                                      listPerMillion.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in total_tests_per_thousandtable4 %}
+                                      listDiabetes.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in new_cases_per_million %}
+                                      listMaleSmokers.push("{{ item }}");
+                                   {% endfor %}
+
+
+
+
+
+                                   list.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                list[index]= element;
+                                             }
+                                   });
+
+                                   listCases.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listCases[index]= element;
+                                             }
+                                   });
+
+                                   listPerMillion.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listPerMillion[index]= element;
+                                             }
+                                   });
+
+                                   listDiabetes.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listDiabetes[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listDiabetes[index]= element;
+                                             }
+                                   });
+
+
+
+                                   listMaleSmokers.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listMaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listMaleSmokers[index]= element;
+                                             }
+                                   });
+
+
+
+                                    return ["Total Cases: "+listPerMillion[tooltipItem.index],'Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
+                                  }
+                           } // end callbacks:
+                         }, //end tooltips
+        scales: {
+                                     yAxes: [{
+                                         ticks: {
+                                             beginAtZero:true,
+                                             callback: function(value, index, values) {
+                                                 if(parseInt(value) >= 1000){
+                                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                 } else {
+                                                    return value;
+                                                 }
+                                            }
+                                         }
+                                     }]
+        }
+
+
+      }
+
+      });
+      // End Sick Population Percentage chart
+
+      // Start Fatality Case Ratio chart
+      var ctx = document.getElementById('chartFatalityCaseRatio').getContext("2d");
+      var myChart5 = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [
+          {% for item in locationtable5 %}
+              "{{ item }}",
+               {% endfor %}
+        ],
+        datasets : [{
+             fillColor: "rgba(151,187,205,1)",
+             strokeColor: "rgba(151,187,205,1)",
+             pointColor: "rgba(151,187,205,1)",
+             backgroundColor: "rgba(151,187,205,0.2)",
+             borderColor:"rgba(151,187,205,1)",
+             borderWidth:2,
+             label: "Case Fatality Rate",
+             data : [
+                       {% for item in case_fatality_ratio %}
+                          "{{ item }}",
+                       {% endfor %}
+                    ]
+                  }
+
+
+                    ],
+      },
+      options: {
+                             responsive: true,
+                             maintainAspectRatio: false,
+
+                         tooltips: {
+                           callbacks: {
+                                 label: function(tooltipItem, data) {
+
+                                     var value = data.datasets[0].data[tooltipItem.index];
+                                     if(parseInt(value) >= 1000){
+                                                return "Case Fatality Rate: "+value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"%";
+                                             } else {
+                                                return "Case Fatality Rate: "+value+"%";
+                                             }
+                                 },
+                                 afterLabel: function(tooltipItem, data) {
+                                   var list = [];
+                                   var listCases = [];
+                                   var listPerMillion = [];
+                                   var listDiabetes = [];
+                                   var listCardiovascular = [];
+                                   var listMaleSmokers = [];
+                                   var listFemaleSmokers = [];
+                                   var listOlder = [];
+
+                                   {% for item in populationtable5 %}
+                                      list.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in median_agetable5 %}
+                                      listCases.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in total_casestable5 %}
+                                      listPerMillion.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in total_deathstable5 %}
+                                      listDiabetes.push("{{ item }}");
+                                   {% endfor %}
+
+                                   {% for item in total_deaths_per_milliontable5 %}
+                                      listMaleSmokers.push("{{ item }}");
+                                   {% endfor %}
+
+
+
+
+
+                                   list.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                list[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                list[index]= element;
+                                             }
+                                   });
+
+                                   listCases.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listCases[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listCases[index]= element;
+                                             }
+                                   });
+
+                                   listPerMillion.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listPerMillion[index]= element;
+                                             }
+                                   });
+
+                                   listDiabetes.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listDiabetes[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listDiabetes[index]= element;
+                                             }
+                                   });
+
+
+
+                                   listMaleSmokers.forEach(function(element, index, array){
+                                     if(parseInt(element) >= 1000){
+                                                listMaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                             } else {
+                                                listMaleSmokers[index]= element;
+                                             }
+                                   });
+
+
+                                   // return ['Population: '+list[tooltipItem.index],"Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total Deaths per Million: "+listMaleSmokers[tooltipItem.index]];
+                                    return ["Total Cases: "+listPerMillion[tooltipItem.index],"Total Deaths: "+listDiabetes[tooltipItem.index]];
+                                  }
+                           } // end callbacks:
+                         }, //end tooltips
+        scales: {
+                                     yAxes: [{
+                                         ticks: {
+                                             beginAtZero:true,
+                                             callback: function(value, index, values) {
+                                                 if(parseInt(value) >= 1000){
+                                                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                 } else {
+                                                    return value;
+                                                 }
+                                            }
+                                         }
+                                     }]
+        }
+
+
+      }
+
+      });
+      // End Fatality Case Ratio chart
+        </script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
