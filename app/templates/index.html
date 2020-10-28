@@ -86,7 +86,7 @@
       }
 
       .section-2 .sizeChart{
-        width:260px !important;
+        width:100% !important;
         height:300px !important;
         padding-left: 0;
       }
@@ -100,6 +100,12 @@
 
       .section-2 .textChart{
         padding-top: 1.5rem;
+        font-family: 'Kumbh Sans', sans-serif;
+        text-align: left !important;
+      }
+
+      .section-2 h6 {
+        line-height: 1.6;
       }
 
     }
@@ -394,7 +400,7 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
 <footer class="pb-4" >
   <div class="text-center pt-5">
     <h3>Soon we will hug each other again</h3>
-    <p>This website is brought to you by David & Ivan</p>
+    <p>This website is brought to you by <a href="about">David & Ivan</a></p>
   </div>
 </footer>
         <script>
@@ -860,12 +866,7 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
                                  afterLabel: function(tooltipItem, data) {
                                    var list = [];
                                    var listCases = [];
-                                   var listPerMillion = [];
-                                   var listDiabetes = [];
-                                   var listCardiovascular = [];
                                    var listMaleSmokers = [];
-                                   var listFemaleSmokers = [];
-                                   var listOlder = [];
 
                                    {% for item in populationtable4 %}
                                       list.push("{{ item }}");
@@ -873,14 +874,6 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
 
                                    {% for item in median_agetable4 %}
                                       listCases.push("{{ item }}");
-                                   {% endfor %}
-
-                                   {% for item in total_casestable4 %}
-                                      listPerMillion.push("{{ item }}");
-                                   {% endfor %}
-
-                                   {% for item in total_tests_per_thousandtable4 %}
-                                      listDiabetes.push("{{ item }}");
                                    {% endfor %}
 
                                    {% for item in new_cases_per_million %}
@@ -907,24 +900,6 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
                                              }
                                    });
 
-                                   listPerMillion.forEach(function(element, index, array){
-                                     if(parseInt(element) >= 1000){
-                                                listPerMillion[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                             } else {
-                                                listPerMillion[index]= element;
-                                             }
-                                   });
-
-                                   listDiabetes.forEach(function(element, index, array){
-                                     if(parseInt(element) >= 1000){
-                                                listDiabetes[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                             } else {
-                                                listDiabetes[index]= element;
-                                             }
-                                   });
-
-
-
                                    listMaleSmokers.forEach(function(element, index, array){
                                      if(parseInt(element) >= 1000){
                                                 listMaleSmokers[index]= element.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -935,7 +910,7 @@ Yemen is already the world’s worst humanitarian and development crisis."</h6>
 
 
 
-                                    return ["Total Cases: "+listPerMillion[tooltipItem.index],'Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"Total tests per thousand: "+listDiabetes[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
+                                    return ['Population: '+list[tooltipItem.index],"Median age: "+listCases[tooltipItem.index],"New cases per Million: "+listMaleSmokers[tooltipItem.index]];
                                   }
                            } // end callbacks:
                          }, //end tooltips
